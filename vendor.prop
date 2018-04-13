@@ -11,6 +11,9 @@ ro.config.vc_call_vol_steps=15
 # Bluetooth
 ro.bluetooth.powerstats.disable=true
 
+# Bluetooth (A2DP)
+persist.bluetooth.a2dp_offload.disabled=false
+
 # Camera
 persist.vendor.camera3.pipeline.bufnum.base.imgo=4
 persist.vendor.camera3.pipeline.bufnum.base.lcso=4
