@@ -1,3 +1,4 @@
 allow mtk_hal_camera persist_data_file:dir search;
 allow mtk_hal_camera vendor_persist_camera_file:dir rw_dir_perms;
 allow mtk_hal_camera vendor_persist_camera_file:file create_file_perms;
+allow mtk_hal_camera hal_oplus_orms_hwservice:hwservice_manager find;
