@@ -218,6 +218,9 @@ ro.soc.model=MT6785
 ro.hardware.kmsetkey=trustonic
 ro.vendor.mtk_trustonic_tee_support=1
 
+# USB
+persist.vendor.usb.config=mtp,adb
+
 # Vibrator
 ro.vendor.vibrator.hal.click.duration=70
 ro.vendor.vibrator.hal.tick.duration=60
