@@ -1,0 +1,3 @@
+get_prop(mediacodec, vendor_mtk_crossmount_prop)
+get_prop(mediacodec, vendor_mtk_deinterlace_prop)
+get_prop(mediacodec, vendor_mtk_omx_core_prop)
