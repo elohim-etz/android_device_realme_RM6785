@@ -722,6 +722,10 @@ on boot
     chmod 0770 /sys/power/tuxonice
     chmod 0220 /sys/power/tuxonice/do_hibernate
 
+# Workarround for cache
+     rm /data/resource-cache
+     rm /data/system/package_cache
+
 
 # Smartbook Handler Framework
     chown system system /sys/power/sb_state
