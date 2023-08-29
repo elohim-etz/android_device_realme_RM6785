@@ -24,6 +24,14 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
+function vendor_imports() {
+    cat <<EOF >>"$1"
+		"device/realme/RM6785-common",
+		"hardware/mediatek",
+		"hardware/mediatek/libmtkperf_client",
+EOF
+}
+
 # Initialize the helper for device
 setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}"
 
