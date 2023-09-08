@@ -29,6 +29,7 @@ def AddImage(info, basename, dest, incremental):
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
 
 def OTA_InstallEnd(info, incremental):
+  AddImage(info, 'dtbo.img', "/dev/block/platform/bootdevice/by-name/dtbo", incremental,)
   AddImage(info, "vbmeta.img", "/dev/block/platform/bootdevice/by-name/vbmeta", incremental)
 
   bin_map = {
@@ -40,7 +41,6 @@ def OTA_InstallEnd(info, incremental):
       'cam_vpu1': ['cam_vpu1'],
       'cam_vpu2': ['cam_vpu2'],
       'cam_vpu3': ['cam_vpu3'],
-      'dtbo': ['dtbo'],
       'gz': ['gz1', 'gz2'],
       'lk': ['lk', 'lk2'],
       'md1img': ['md1img'],
