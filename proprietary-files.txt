@@ -906,7 +906,6 @@ vendor/lib64/vendor.mediatek.hardware.lbs@1.0.so
 
 # Graphics
 vendor/bin/hw/vendor.mediatek.hardware.gpu@1.0-service
-vendor/etc/init/android.hardware.graphics.allocator@4.0-service-mediatek.rc
 vendor/etc/init/vendor.mediatek.hardware.gpu@1.0-service.rc
 vendor/etc/vintf/manifest/android.hardware.gpu@1.0-service.xml
 vendor/lib/egl/libGLES_mali.so
