@@ -82,6 +82,14 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib/libaudio_param_parser-vnd.so': blob_fixup()
         .binary_regex_replace(b'\x00audio.tuning.def_path', b'\x00ro.vendor.tuning_path')
         .binary_regex_replace(b'\x20audio.tuning.def_path', b'\x20ro.vendor.tuning_path'),
+    'vendor/etc/libnfc-nxp.conf': blob_fixup()
+        .regex_replace('NXPLOG_EXTNS_LOGLEVEL=0x03', 'NXPLOG_EXTNS_LOGLEVEL=0x01')
+        .regex_replace('NXPLOG_NCIHAL_LOGLEVEL=0x03', 'NXPLOG_NCIHAL_LOGLEVEL=0x01')
+        .regex_replace('NXPLOG_NCIX_LOGLEVEL=0x03', 'NXPLOG_NCIX_LOGLEVEL=0x01')
+        .regex_replace('NXPLOG_NCIR_LOGLEVEL=0x03', 'NXPLOG_NCIR_LOGLEVEL=0x01')
+        .regex_replace('NXPLOG_FWDNLD_LOGLEVEL=0x03', 'NXPLOG_FWDNLD_LOGLEVEL=0x01')
+        .regex_replace('NXPLOG_TML_LOGLEVEL=0x03', 'NXPLOG_TML_LOGLEVEL=0x01')
+        .regex_replace('NFC_DEBUG_ENABLED=0x01', 'NFC_DEBUG_ENABLED=0x00'),
 
     'vendor/lib/libMtkOmxVdecEx.so': blob_fixup()
         .replace_needed('libui.so', 'libui-v32.so')
