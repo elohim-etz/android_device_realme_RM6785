@@ -36,11 +36,6 @@ on init
     write /dev/cpuset/system-background/cpus 0-5
     write /dev/cpuset/top-app/cpus 0-7
 
-on late-init
-    write /proc/bootprof "INIT:late-init"
-# enable rcu_expedited
-    write /sys/kernel/rcu_expedited 1
-
 # mount different fs start
 
 on charger
