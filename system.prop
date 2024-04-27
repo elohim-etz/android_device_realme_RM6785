@@ -1,3 +1,6 @@
+# Display
+ro.launcher.blur.appLaunch=0
+
 # Dex2oat
 dalvik.vm.dex2oat-cpu-set=4,5,6,7
 dalvik.vm.dex2oat-threads=4
