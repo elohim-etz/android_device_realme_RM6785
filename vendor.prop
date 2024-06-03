@@ -99,6 +99,7 @@ ro.vendor.mtk_hdr_video_support=1
 ro.incremental.enable=yes
 
 # Low Memory Killer
+ro.lmk.kill_heaviest_task=true
 ro.lmk.downgrade_pressure=60
 ro.lmk.kill_timeout_ms=100
 ro.lmk.psi_complete_stall_ms=150
