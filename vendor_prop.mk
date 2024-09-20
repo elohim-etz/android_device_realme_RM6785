@@ -269,3 +269,8 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.WpfaShmWriteMsgHandler=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.gralloc4=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.mtk_pdc_check_charger=$(VENDOR_LOG_LEVEL_I)
+
+ifneq (eng,$(TARGET_BUILD_VARIANT))
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.log.tag=I
+endif
