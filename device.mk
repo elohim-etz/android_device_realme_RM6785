@@ -184,6 +184,7 @@ PRODUCT_PACKAGES += \
 
 # Reduce system server verbosity.
 PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
+PRODUCT_OTHER_JAVA_DEBUG_INFO := false
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
