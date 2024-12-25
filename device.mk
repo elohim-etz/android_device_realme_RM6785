@@ -7,6 +7,9 @@
 # Call proprietary blob setup
 $(call inherit-product, vendor/realme/RM6785/RM6785-vendor.mk)
 
+# V4A
+$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
+
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 29
 
