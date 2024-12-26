@@ -71,7 +71,8 @@ persist.sys.fuse.passthrough.enable=true
 ro.oppo.mtk_gps_mpe=1
 ro.vendor.mtk_log_hide_gps=1
 
-# Graphics
+# Graphic
+debug.graphics.game_default_frame_rate.disabled=true
 debug.mediatek.disp_decompress=1
 debug.sf.auto_latch_unsignaled=0
 debug.sf.latch_unsignaled=1
