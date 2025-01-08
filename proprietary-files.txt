@@ -1271,7 +1271,6 @@ vendor/etc/public.libraries.txt
 -vendor/bin/ipsec_mon
 -vendor/bin/muxreport
 -vendor/bin/netdagent
--vendor/bin/netdc
 -vendor/bin/ppl_agent
 -vendor/bin/starter
 -vendor/bin/stroke
