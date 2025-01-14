@@ -895,6 +895,9 @@ on early-init && property:ro.boot.boot_trace=1
 on property:sys.boot_completed=1
     write /proc/bootprof "0"
 
+# Stop statsd
+on property:sys.boot_completed=1
+    stop statsd
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B -z \
