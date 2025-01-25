@@ -22,3 +22,11 @@ PRODUCT_BRAND := realme
 PRODUCT_MODEL := RM6785
 PRODUCT_MANUFACTURER := realme
 PRODUCT_GMS_CLIENTID_BASE := android-oppo
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BuildDesc=$(call normalize-path-list, "sys_oplus_mssi_64_cn-user 11 RP1A.200720.011 1623809323039 release-keys")
+
+    BUILD_FINGERPRINT := realme/RMX2002/RMX2002L1:11/RP1A.200720.011/1651754371157:user/release-keys
+
+PRODUCT_PRODUCT_PROPERTIES += \
+   ro.build.fingerprint=$(BUILD_FINGERPRINT)
