@@ -960,6 +960,11 @@ on property:persist.vendor.mediatek.fg.log.enable=1
     write /sys/bus/platform/devices/battery/FG_daemon_log_level 7
     write /proc/sys/kernel/printk 8
 
+
+# Restart C2 service after boot completed
+on property:sys.boot_completed=1
+    restart android-hardware-media-c2-hal-1-2
+
 # start meta_tst for ATM
 on property:sys.boot_completed=1 && property:ro.boot.atm=enable
     start meta_tst
