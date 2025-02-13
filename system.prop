@@ -4,6 +4,9 @@ dalvik.vm.dex2oat64.enabled=true
 # Filesystem
 fs_mgr.overlayfs.prefer_cache_backing_storage=true
 
+# Display
+debug.hwui.trace_gpu_resources=false
+
 # IMS
 persist.dbg.volte_avail_ovr=1
 
