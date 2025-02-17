@@ -85,7 +85,7 @@ function blob_fixup {
             sed -i "s/\x20audio.tuning.def_path/\x20ro.vendor.tuning_path/" "$2"
             ;;
         vendor/bin/mnld|\
-        vendor/lib64/libaalservice.so|\
+        vendor/lib*/libaalservice.so|\
         vendor/lib64/libcam.utils.sensorprovider.so)
             grep -q "android.hardware.sensors@1.0-convert-shared.so" "$2" || "$PATCHELF" --add-needed "android.hardware.sensors@1.0-convert-shared.so" "$2"
             ;;
