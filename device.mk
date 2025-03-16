@@ -363,6 +363,7 @@ PRODUCT_PACKAGES += \
     libmedia_helper-v30 \
     libutils-v32 \
     libutils-v30 \
+    libbase_shim \
     libui-v32
 
 PRODUCT_PACKAGES += \
