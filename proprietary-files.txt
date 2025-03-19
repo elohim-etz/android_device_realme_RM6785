@@ -272,7 +272,6 @@ vendor/etc/test_path/common/mixer_paths.xml
 vendor/etc/audio_device.xml
 vendor/etc/audio_em.xml
 vendor/etc/audio_policy.conf
-vendor/etc/audio_policy_volumes.xml
 vendor/etc/aurisys_config.xml
 vendor/etc/aurisys_config_hifi3.xml
 vendor/etc/file112.wav
