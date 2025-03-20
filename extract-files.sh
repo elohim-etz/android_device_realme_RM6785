@@ -26,9 +26,6 @@ source "${HELPER}"
 
 function blob_fixup {
     case "$1" in
-        product/etc/permissions/com.android.hotwordenrollment.common.util.xml)
-            sed -i 's/my_product/product/' "$2"
-            ;;
         system_ext/lib64/libsource.so)
             grep -q libui_shim.so "$2" || "$PATCHELF" --add-needed libui_shim.so "$2"
             ;;
