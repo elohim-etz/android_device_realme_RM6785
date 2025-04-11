@@ -6,3 +6,7 @@ fs_mgr.overlayfs.prefer_cache_backing_storage=true
 
 # IMS
 persist.dbg.volte_avail_ovr=1
+
+# LMKD
+ro.config.low_ram=false
+ro.lmk.log_stats=true
