@@ -45,7 +45,11 @@ lib_fixups: lib_fixups_user_type = {
 blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/libsource.so': blob_fixup()
         .add_needed('libui_shim.so'),
-    'vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron': blob_fixup()
+    ('vendor/lib/libnvram.so',
+    'vendor/lib/libsysenv.so',
+    'vendor/lib64/libnvram.so',
+    'vendor/lib64/libsysenv.so',
+    'vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron'): blob_fixup()
         .add_needed('libbase_shim.so'),
     'vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so': blob_fixup()
         .add_needed('libcamera_metadata_shim.so'),
