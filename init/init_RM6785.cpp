@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+#include <sys/sysinfo.h>
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <vector>
@@ -27,6 +28,15 @@ void property_override(const char* prop, const char* value, bool add = true) {
         __system_property_update(pi, value, strlen(value));
     } else if (add) {
         __system_property_add(prop, strlen(prop), value, strlen(value));
+    }
+}
+
+void set_avoid_gfxaccel_config() {
+    struct sysinfo sys;
+    sysinfo(&sys);
+    if (sys.totalram <= 4096ull * 1024 * 1024) {
+        // Reduce memory footprint
+        property_override("ro.config.avoid_gfx_accel", "true");
     }
 }
 
@@ -126,6 +136,7 @@ void set_device() {
 }
 
 void vendor_load_properties() {
+    set_avoid_gfxaccel_config();
 #ifndef __ANDROID_RECOVERY__
     set_device();
 #endif
