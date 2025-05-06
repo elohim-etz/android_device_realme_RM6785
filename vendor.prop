@@ -143,6 +143,9 @@ vendor.mtk.vdec.waitkeyframeforplay=7
 ro.vendor.mtk_pq_color_mode=1
 ro.vendor.mtk_pq_support=2
 
+# Phantom process monitoring
+sys.fflag.override.settings_enable_monitor_phantom_procs=false
+
 # Radio
 persist.radio.multisim.config=dsds
 persist.vendor.ims_support=1
