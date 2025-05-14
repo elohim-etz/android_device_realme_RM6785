@@ -1002,9 +1002,6 @@ vendor/lib64/vendor.mediatek.hardware.mms@1.3.so
 vendor/lib64/vendor.mediatek.hardware.mms@1.4.so
 vendor/lib64/vendor.mediatek.hardware.mms@1.5.so
 
-# Misc
-vendor/etc/init/bootperf.rc
-
 # Neural networks
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron;DISABLE_DEPS
 vendor/etc/init/android.hardware.neuralnetworks@1.3-service-mtk-neuron.rc
