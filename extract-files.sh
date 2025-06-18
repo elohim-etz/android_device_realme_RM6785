@@ -90,6 +90,10 @@ function blob_fixup {
         vendor/lib64/libcam.utils.sensorprovider.so)
             grep -q "android.hardware.sensors@1.0-convert-shared.so" "$2" || "$PATCHELF" --add-needed "android.hardware.sensors@1.0-convert-shared.so" "$2"
             ;;
+        vendor/bin/hw/mtkfusionrild)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libutils-v32.so" "${2}"
+            ;;
     esac
 }
 
