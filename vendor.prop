@@ -99,6 +99,9 @@ ro.vendor.mtk_hdr_video_support=1
 # Incremental
 ro.incremental.enable=yes
 
+# Launcher
+ro.launcher.blur.appLaunch=0
+
 # Low Memory Killer
 ro.lmk.kill_heaviest_task=true
 ro.lmk.downgrade_pressure=60
