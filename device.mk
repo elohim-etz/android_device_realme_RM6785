@@ -51,7 +51,7 @@ $(call inherit-product, hardware/dolby/dolby.mk)
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0.vendor:64
+    android.hardware.bluetooth-service.mediatek
 
 # Camera
 PRODUCT_PACKAGES += \
