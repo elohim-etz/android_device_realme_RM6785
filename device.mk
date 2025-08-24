@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.RM6785
+    android.hardware.lights-service.RM6785
 
 # Lineage Health
 PRODUCT_PACKAGES += \
