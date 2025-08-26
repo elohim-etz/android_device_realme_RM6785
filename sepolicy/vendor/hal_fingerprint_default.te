@@ -13,5 +13,6 @@ allow hal_fingerprint_default sysfs_fingerprint:file rw_file_perms;
 allow hal_fingerprint_default sysfs_fingerprint:dir r_dir_perms;
 allow hal_fingerprint_default mtee_trusty_file:dir search;
 allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
+allow hal_fingerprint_default rootfs:dir r_dir_perms;
 
 dontaudit hal_fingerprint_default default_prop:property_service set;
