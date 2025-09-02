@@ -19,3 +19,11 @@ cc_prebuilt_library_shared {
     vendor: true,
     shared_libs: ["android.hardware.graphics.common-V2-ndk_platform"],
 }
+
+cc_library_shared {
+    name: "android.hardware.graphics.common-V2-ndk_platform",
+    shared_libs: [
+        "android.hardware.graphics.common-V2-ndk",
+    ],
+    vendor: true,
+}
