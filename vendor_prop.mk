@@ -7,11 +7,13 @@ else
 endif
 
 PRODUCT_VENDOR_PROPERTIES += \
+    persist.log.tag.ActivityManager=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.AdnRecord=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.AdnRecordCache=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.AdnRecordLoader=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.AirplaneHandler=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.AT=$(VENDOR_LOG_LEVEL_I) \
+    persist.log.tag.BluetoothPowerStatCollector=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.C2K_RIL-DATA=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.CapaSwitch=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.CarrierExpressServiceImpl=$(VENDOR_LOG_LEVEL_I) \
@@ -20,6 +22,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.CountryDetector=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.DataDispatcher=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.DcFcMgr=$(VENDOR_LOG_LEVEL_I) \
+    persist.log.tag.DisplayModeController=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.DSSelector=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.DSSelectorOm=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.DSSelectorOP01=$(VENDOR_LOG_LEVEL_I) \
@@ -28,6 +31,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.DSSelectorOP18=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.DSSelectorUtil=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.ExternalSimMgr=$(VENDOR_LOG_LEVEL_I) \
+    persist.log.tag.FrameTracker=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.GsmCallTkrHlpr=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.GsmCdmaConn=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.GsmCdmaPhone=$(VENDOR_LOG_LEVEL_I) \
@@ -53,6 +57,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.ImsVTProvider=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.IsimFileHandler=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.IsimRecords=$(VENDOR_LOG_LEVEL_I) \
+    persist.log.tag.libperfmgr=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.libPowerHal=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.MDP=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.MtkAdnRecord=$(VENDOR_LOG_LEVEL_I) \
