@@ -26,7 +26,7 @@ source "${HELPER}"
 
 function vendor_imports() {
     cat <<EOF >>"$1"
-		"device/realme/RM6785-common",
+		"device/realme/RM6785",
 		"hardware/mediatek",
 		"hardware/mediatek/libmtkperf_client",
 EOF
@@ -36,7 +36,7 @@ EOF
 setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}"
 
 # Copyright headers and common guards
-write_headers "RMX2001 RMX2151"
+write_headers
 
 # The standard blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

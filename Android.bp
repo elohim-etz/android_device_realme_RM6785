@@ -2,6 +2,6 @@ soong_namespace {
     imports: [
         "hardware/google/interfaces",
         "hardware/google/pixel",
-        "vendor/realme/RM6785-common",
+        "vendor/realme/RM6785",
     ],
 }
