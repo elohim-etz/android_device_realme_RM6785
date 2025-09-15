@@ -321,6 +321,7 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
+    NcmTetheringOverlay \
     TetheringConfigOverlayRM6785 \
     WifiOverlayRM6785 \
     libwifi-hal-wrapper \
