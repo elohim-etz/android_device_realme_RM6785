@@ -45,6 +45,9 @@ TARGET_PREBUILT_BCR := false
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 1920
 
+# Perf Activity Anim Override
+PERF_ANIM_OVERRIDE := true
+
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_RM6785
 PRODUCT_DEVICE := RM6785
