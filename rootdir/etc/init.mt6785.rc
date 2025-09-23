@@ -22,8 +22,6 @@ on init
     # if primary storage is physical, set ro.vold.primary_physical to 1
     # setprop ro.vold.primary_physical 1
 
-    mkdir /mnt/cd-rom 0000 system system
-
 # change lk_env permission
     chown root system /proc/lk_env
     chmod 0660 /proc/lk_env
@@ -85,9 +83,6 @@ on fs
     start vendor.boot-hal-1-1
     mount_all --early
     write /proc/bootprof "INIT:Mount_END"
-
-on fs
-   mount iso9660 loop@/vendor/etc/iAmCdRom.iso /mnt/cd-rom ro
 
 on late-fs
     write /proc/bootprof "INIT:late-fs"
