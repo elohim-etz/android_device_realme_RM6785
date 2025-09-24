@@ -358,10 +358,6 @@ on post-fs-data
     chown radio system /sys/devices/platform/mt-pmic/low_battery_protect_stop
     chown radio system /sys/devices/platform/mt-pmic/low_battery_protect_ut
 
-    #MDDB
-    mkdir /data/vendor_de/meta 0770 system system
-    mkdir /data/vendor_de/meta/mddb 0770 system system
-
     chmod 0660 /data/misc/acdapi/calib.dat
     chmod 0660 /data/misc/acdapi/param.dat
     chmod 0660 /data/misc/acdapi/sensors.dat
