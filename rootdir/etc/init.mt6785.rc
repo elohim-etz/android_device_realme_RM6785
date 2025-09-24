@@ -74,7 +74,6 @@ on charger
 
 on fs
     write /proc/bootprof "INIT:Mount_START"
-    wait_for_prop hwservicemanager.ready "true"
     start vendor.boot-hal-1-1
     mount_all --early
     write /proc/bootprof "INIT:Mount_END"
