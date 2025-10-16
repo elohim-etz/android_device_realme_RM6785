@@ -7,8 +7,3 @@ set_prop(init_RM6785, vendor_device_prop)
 
 allow init_RM6785 proc_nfc_chipset:file r_file_perms;
 allow init_RM6785 proc_oppo_operator:file r_file_perms;
-
-allow init proc_vm_dirty:file rw_file_perms;
-allow init proc_dirty:file rw_file_perms;
-allow init proc_drop_caches:file rw_file_perms;
-allow init proc_sched_migration_cost_ns:file rw_file_perms;
