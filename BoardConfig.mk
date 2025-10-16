@@ -8,7 +8,6 @@ DEVICE_PATH := device/realme/RM6785
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6785
-BOARD_HAS_MTK_HARDWARE := true
 
 # Aperture Camera
 PRODUCT_NO_CAMERA := true
