@@ -35,6 +35,7 @@
         <!--Spatial Audio-->
         <library name="spatializer" path="libspatialaudio.so"/>
 	    <!--Spatial Audio-->
+		<library name="jdsp" path="libjamesdsp.so"/>
     </libraries>
 
     <!-- list of effects to load.
@@ -93,6 +94,7 @@
         <!--Spatial Audio-->
         <effect name="spatializer" library="spatializer" uuid="cc4677de-ff72-11eb-9a03-0242ac130003"/>
 	    <!--Spatial Audio-->
+		<effect name="jamesdsp" library="jdsp" uuid="f27317f4-c984-4de6-9a90-545759495bf2"/>
     </effects>
 
     <!-- Audio pre processor configurations.
