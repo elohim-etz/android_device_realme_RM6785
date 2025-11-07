@@ -13,3 +13,7 @@ persist.dbg.volte_avail_ovr=1
 # LMKD
 ro.config.low_ram=false
 ro.lmk.log_stats=true
+
+# ScrollOptimizer
+persist.sys.perf.scroll_opt = true
+persist.sys.perf.scroll_opt.heavy_app = 1
