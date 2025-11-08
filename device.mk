@@ -303,7 +303,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek \
-    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/mediatek/wlan/wifi_hal \
     hardware/mediatek/libmtkperf_client \
     hardware/lineage/interfaces/power-libperfmgr \
     $(LOCAL_PATH)
@@ -348,10 +348,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     TetheringConfigOverlayRM6785 \
     WifiOverlayRM6785 \
-    libwifi-hal-wrapper \
     hostapd \
     wpa_supplicant \
     android.hardware.wifi-service
+
+$(call soong_config_set,wpa_supplicant_8,board_wlan_mediatek_stability,true)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/txpowerctrl.cfg:$(TARGET_COPY_OUT_VENDOR)/firmware/txpowerctrl.cfg \
