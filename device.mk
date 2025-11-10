@@ -173,6 +173,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     FrameworksOverlayRMX2151 \
     FrameworksOverlayRMX2161 \
+    FrameworksResOverlayRM6785 \
     SettingsOverlayRM6785 \
     SettingsProviderOverlay6 \
     SettingsProviderOverlay6i \
