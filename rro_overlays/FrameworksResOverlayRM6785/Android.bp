@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "FrameworksResOverlayRM6785",
+    vendor: true,
+}
