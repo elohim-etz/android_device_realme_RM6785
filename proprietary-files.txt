@@ -1078,8 +1078,6 @@ odm/etc/init/init.pn8x.se.rc
 odm/etc/nfc/libnfc-nxp.conf_19661:vendor/etc/libnfc-nxp.conf
 odm/etc/libnfc-nxp-pnscr.conf
 odm/lib64/libpnscr2.so
-vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek
-vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
 vendor/lib64/libnxprecord.so
 vendor/lib64/libnxpspeech.so
 
