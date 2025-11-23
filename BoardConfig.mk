@@ -148,7 +148,7 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Vibrator
-$(call soong_config_set,mediatek_vibrator,supports_effects,true)
+$(call soong_config_set_bool,mediatek_vibrator,supports_effects,true)
 
 # Wi-Fi
 BOARD_WLAN_DEVICE := MediaTek
