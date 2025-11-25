@@ -5,5 +5,5 @@
 
 runtime_resource_overlay {
     name: "SettingsProviderOverlay6i",
-    vendor: true
+    vendor: true,
 }
