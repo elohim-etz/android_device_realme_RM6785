@@ -142,6 +142,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.memtrack-service.mediatek-mali
 
+# MtkInCallService
+PRODUCT_PACKAGES += \
+    MtkInCallService
+
 # Reduce system server verbosity.
 PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
 PRODUCT_OTHER_JAVA_DEBUG_INFO := false
