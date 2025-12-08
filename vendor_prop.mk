@@ -33,6 +33,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.DSSelectorUtil=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.ExternalSimMgr=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.FrameTracker=$(VENDOR_LOG_LEVEL_I) \
+    persist.log.tag.GPUAUX=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.GsmCallTkrHlpr=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.GsmCdmaConn=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.GsmCdmaPhone=$(VENDOR_LOG_LEVEL_I) \
