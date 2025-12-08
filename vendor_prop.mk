@@ -19,6 +19,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.CarrierExpressServiceImpl=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.CarrierExpressServiceImplExt=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.ccci_mdinit=$(VENDOR_LOG_LEVEL_D) \
+    persist.log.tag.Conscrypt=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.CountryDetector=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.DataDispatcher=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.DcFcMgr=$(VENDOR_LOG_LEVEL_I) \
