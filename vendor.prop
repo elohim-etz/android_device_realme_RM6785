@@ -5,6 +5,8 @@ ro.vendor.mtk_aal_support=1
 ro.apk_verity.mode=2
 
 # Audio
+aaudio.mmap_policy=0
+aaudio.mmap_exclusive_policy=0
 ro.config.alarm_vol_steps=15
 ro.config.vc_call_vol_steps=15
 persist.vendor.audiohal.aurisys.pcm_dump_on=0
