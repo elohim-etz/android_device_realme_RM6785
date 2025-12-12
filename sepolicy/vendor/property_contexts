@@ -12,6 +12,9 @@ ro.vendor.mtk_crossmount                    u:object_r:vendor_mtk_crossmount_pro
 ro.vendor.mtk_deinterlace                   u:object_r:vendor_mtk_deinterlace_prop:s0
 ro.vendor.mtk_hdr_video_support             u:object_r:vendor_mtk_default_prop:s0
 
+# Sensors
+vendor.dynamic_sensor.                      u:object_r:vendor_dynamic_sensor_prop:s0
+
 # Vendor device
 ro.vendor.device                            u:object_r:vendor_device_prop:s0
 ro.vendor.nfc_device                        u:object_r:vendor_device_prop:s0
