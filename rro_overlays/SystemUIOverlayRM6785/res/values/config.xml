@@ -29,4 +29,7 @@
     <!-- Charging info current divider, if needed -->
     <integer name="config_currentInfoDivider" translatable="false">1</integer>
 
+    <!-- Blur radius behind Notification Shade -->
+    <dimen name="max_shade_window_blur_radius">17dp</dimen>
+
 </resources>

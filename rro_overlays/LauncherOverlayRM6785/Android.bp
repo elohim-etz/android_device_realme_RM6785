@@ -1,0 +1,6 @@
+runtime_resource_overlay {
+    name: "LauncherOverlayRM6785",
+    theme: "LauncherOverlayRM6785",
+    sdk_version: "current",
+    product_specific: true,
+}
