@@ -27,11 +27,11 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.audio@7.0-impl:32 \
     android.hardware.audio.effect@7.0-impl:32 \
-    android.hardware.bluetooth.audio-impl \
-    audio.bluetooth.default \
-    audio.primary.default \
-    audio.r_submix.default \
-    audio.usb.default \
+    android.hardware.bluetooth.audio-impl:32 \
+    audio.bluetooth.default:32 \
+    audio.primary.default:32 \
+    audio.r_submix.default:32 \
+    audio.usb.default:32 \
     libldacBT_bco
 
 PRODUCT_COPY_FILES += \
