@@ -266,8 +266,8 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr
 
 PRODUCT_PACKAGES += \
-    libmtkperf_client_vendor \
-    libmtkperf_client
+    libmtkperf_client_vendor:64 \
+    libmtkperf_client:64
 
 PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.mtkpower@1.2-service.stub
