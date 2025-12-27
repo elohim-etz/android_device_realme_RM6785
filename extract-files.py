@@ -72,8 +72,6 @@ blob_fixups: blob_fixups_user_type = {
 
     'system_ext/lib64/libimsma.so': blob_fixup()
         .replace_needed('libsink.so', 'libsink-mtk.so'),
-    'vendor/lib/hw/audio.usb.mt6785.so': blob_fixup()
-        .replace_needed('libalsautils.so', 'libalsautils-v30.so'),
     ('vendor/lib64/libmtkcam_stdutils.so', 'vendor/lib64/hw/dfps.mt6785.so', 'vendor/lib64/hw/vendor.mediatek.hardware.pq@2.6-impl.so'): blob_fixup()
         .replace_needed('libutils.so', 'libutils-v30.so'),
 
