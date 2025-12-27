@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "SystemUIOverlayRM6785",
+    vendor: true,
+}

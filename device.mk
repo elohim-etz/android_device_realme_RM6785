@@ -177,15 +177,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor:64
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
-
 PRODUCT_PACKAGES += \
+    ApertureOverlayRM6785 \
+    CarrierConfigOverlayRM6785 \
+    DialerOverlayRM6785 \
     FrameworksOverlayRMX2151 \
     FrameworksOverlayRMX2161 \
     FrameworksResOverlayRM6785 \
+    LineageSDKOverlayRM6785 \
     SettingsOverlayRM6785 \
     SettingsProviderOverlay6 \
     SettingsProviderOverlay6i \
@@ -193,7 +192,9 @@ PRODUCT_PACKAGES += \
     SettingsProviderOverlay7 \
     SettingsProviderOverlayNarzo \
     SettingsProviderOverlayNarzo20Pro \
-    SettingsProviderOverlayNarzo30
+    SettingsProviderOverlayNarzo30 \
+    SystemUIOverlayRM6785 \
+    TelephonyOverlayRM6785
 
 # RRO (Runtime Resource Overlay)
 PRODUCT_ENFORCE_RRO_TARGETS += *
