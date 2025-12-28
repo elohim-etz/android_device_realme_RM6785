@@ -37,6 +37,7 @@ void set_avoid_gfxaccel_config() {
     if (sys.totalram <= 4096ull * 1024 * 1024) {
         // Reduce memory footprint
         property_override("ro.config.avoid_gfx_accel", "true");
+        property_override("ro.surface_flinger.supports_background_blur", "false");
     }
 }
 
