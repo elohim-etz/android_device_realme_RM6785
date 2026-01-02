@@ -31,7 +31,7 @@ on init
 
 # mount different fs start
 
-on property:init.svc.vendor.charger=running
+on charger
     exec /system/bin/e2fsck -f -p /dev/block/platform/bootdevice/by-name/cache
     mount ext4 /dev/block/platform/bootdevice/by-name/cache /cache rw wait
     chmod 0660 /dev/spm
@@ -64,6 +64,9 @@ on property:init.svc.vendor.charger=running
     chown system system /sys/class/leds/green/brightness
 
     start vendor.light-default
+
+    chown system system /dev/graphics/fb0
+    chown system system /dev/dri/card0
 
 on fs
     write /proc/bootprof "INIT:Mount_START"
