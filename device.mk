@@ -111,6 +111,7 @@ PRODUCT_PACKAGES += \
     init_connectivity.rc \
     init.modem.rc \
     init.mt6785.rc \
+    init.mt6785.power.rc \
     init.mt6785.usb.rc \
     init.project.rc \
     init.sensor_1_0.rc \
