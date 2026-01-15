@@ -57,7 +57,7 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('liblog.so'),
     'vendor/lib64/libcam.halsensor.so': blob_fixup()
         .add_needed('libshim_utils.so'),
-    'vendor/lib64/libutils-v30.so': blob_fixup()
+   ('vendor/lib64/libutils-v30.so', 'vendor/lib64/hw/hwcomposer.mt6785.so'): blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
     'vendor/lib/hw/audio.primary.mt6785.so': blob_fixup()
         .add_needed('libshim_audio.so')
