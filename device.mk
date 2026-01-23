@@ -366,8 +366,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     android.hardware.wifi-service
 
-$(call soong_config_set,wpa_supplicant_8,board_wlan_mediatek_stability,true)
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/txpowerctrl.cfg:$(TARGET_COPY_OUT_VENDOR)/firmware/txpowerctrl.cfg \
     $(LOCAL_PATH)/configs/wifi/wifi.cfg:$(TARGET_COPY_OUT_VENDOR)/firmware/wifi.cfg
