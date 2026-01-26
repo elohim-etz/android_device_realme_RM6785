@@ -17,7 +17,7 @@ bluetooth.profile.sap.server.enabled?=true
 ro.vendor.mtk.bt_sap_enable=true
 
 # BPF
-ro.bpf.kver_override=5.10.239
+ro.bpf.kver_override=5.10.247
 
 # FM
 ro.fm.chip=0x6631
