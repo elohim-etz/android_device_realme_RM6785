@@ -1110,7 +1110,6 @@ vendor/bin/charon
 vendor/bin/epdg_wod
 vendor/bin/gsm0710muxd
 vendor/bin/ipsec_mon
-vendor/bin/netdagent
 vendor/bin/ppl_agent
 vendor/bin/starter
 vendor/bin/stroke
@@ -1135,7 +1134,6 @@ vendor/etc/init/init.wod.rc
 vendor/etc/init/init.xcap.rc
 vendor/etc/init/ipsec_mon.rc
 vendor/etc/init/mtkrild.rc
-vendor/etc/init/netdagent.rc
 vendor/etc/init/networksetting.rc
 vendor/etc/init/ppl_agent.rc
 vendor/lib/libcapctrl.so
