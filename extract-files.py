@@ -70,6 +70,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('android.hardware.sensors@1.0-convert-shared.so'),
     'system_ext/lib64/libimsma.so': blob_fixup()
         .replace_needed('libsink.so', 'libsink-mtk.so'),
+    'system/priv-app/ImsService/ImsService.apk': blob_fixup()
+        .apktool_patch('blob-patches/ImsService/'),
     ('vendor/lib64/libmtkcam_stdutils.so', 'vendor/lib64/hw/dfps.mt6785.so', 'vendor/lib64/hw/vendor.mediatek.hardware.pq@2.6-impl.so'): blob_fixup()
         .replace_needed('libutils.so', 'libutils-v30.so'),
     'vendor/lib64/libmtkcam_featurepolicy.so': blob_fixup()
