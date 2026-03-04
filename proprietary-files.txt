@@ -1246,12 +1246,10 @@ system/framework/mediatek-ims-extension-plugin.jar
 system/framework/mediatek-ims-legacy.jar
 system/framework/mediatek-telecom-common.jar
 system/framework/mediatek-telephony-common.jar
+system/priv-app/ImsService/ImsService.apk
 
 # Radio (IMS) - https://pastebin.com/raw/Wa3EZpPr
 system/framework/mediatek-telephony-base.jar|d0f18c1c0fc4894fe31b0148cbf33387a1b0bf3d
-
-# Radio (ImsService) - https://github.com/elohim-etz/ImsService
-system/priv-app/ImsService/ImsService.apk|c3e9badaaa4ee94b7adaa890dad2dd2c5ebdac6a
 
 # Radio (Oplus)
 odm/lib64/vendor.oplus.hardware.appradio@1.0.so
