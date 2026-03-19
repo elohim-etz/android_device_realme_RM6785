@@ -125,9 +125,6 @@ ro.lmk.thrashing_limit_decay=50
 # Power HAL
 vendor.powerhal.disp.idle_support=false
 
-# Power HAL
-vendor.powerhal.disp.idle_support=false
-
 # MTK
 ro.vendor.mediatek.platform=MT6785
 

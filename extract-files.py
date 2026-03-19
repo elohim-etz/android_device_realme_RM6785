@@ -66,15 +66,12 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcutils.so'),
     'vendor/bin/hw/mtkfusionrild': blob_fixup()
         .add_needed('libutils-v32.so'),
-
     ('vendor/bin/mnld', 'vendor/lib/libcam.utils.sensorprovider.so', 'vendor/lib/libaalservice.so', 'vendor/lib64/libcam.utils.sensorprovider.so', 'vendor/lib64/libaalservice.so'): blob_fixup()
         .add_needed('android.hardware.sensors@1.0-convert-shared.so'),
-
     'system_ext/lib64/libimsma.so': blob_fixup()
         .replace_needed('libsink.so', 'libsink-mtk.so'),
     ('vendor/lib64/libmtkcam_stdutils.so', 'vendor/lib64/hw/dfps.mt6785.so', 'vendor/lib64/hw/vendor.mediatek.hardware.pq@2.6-impl.so'): blob_fixup()
         .replace_needed('libutils.so', 'libutils-v30.so'),
-
     'vendor/lib64/libmtkcam_featurepolicy.so': blob_fixup()
         .binary_regex_replace(b'\x34\xE8\x87\x40\xB9', b'\x34\x28\x02\x80\x52'),
     'vendor/lib/libMtkOmxCore.so': blob_fixup()
@@ -90,7 +87,6 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('NXPLOG_FWDNLD_LOGLEVEL=0x03', 'NXPLOG_FWDNLD_LOGLEVEL=0x01')
         .regex_replace('NXPLOG_TML_LOGLEVEL=0x03', 'NXPLOG_TML_LOGLEVEL=0x01')
         .regex_replace('NFC_DEBUG_ENABLED=0x01', 'NFC_DEBUG_ENABLED=0x00'),
-
     'vendor/lib/libMtkOmxVdecEx.so': blob_fixup()
         .replace_needed('libui.so', 'libui-v32.so')
         .binary_regex_replace(b'ro.mtk_crossmount_support', b'ro.vendor.mtk_crossmount\x00')
