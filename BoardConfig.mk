@@ -9,9 +9,6 @@ DEVICE_PATH := device/realme/RM6785
 # Platform
 TARGET_BOARD_PLATFORM := mt6785
 
-# Aperture Camera
-PRODUCT_NO_CAMERA := true
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod

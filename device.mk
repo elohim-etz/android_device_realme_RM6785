@@ -7,11 +7,6 @@
 # Call proprietary blob setup
 $(call inherit-product, vendor/realme/RM6785/RM6785-vendor.mk)
 
-# JDSP
-$(call inherit-product, packages/apps/JamesDSPManager/config.mk)
-# V4A
-$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
-
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 29
 
@@ -50,11 +45,11 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
-$(call inherit-product, hardware/dolby/dolby.mk)
-
-# LunarisDolby
+# Dolby
 PRODUCT_PACKAGES += \
     LunarisDolby
+
+$(call inherit-product, hardware/dolby/dolby.mk)
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -185,7 +180,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libese-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libese-nxp.conf \
     $(LOCAL_PATH)/configs/nfc/nfc_features.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_nfc/nfc_features.xml
 
-# Neutral Networks
+# Neural Networks
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor:64
 
@@ -344,10 +339,6 @@ AB_OTA_UPDATER := false
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.mediatek-legacy
-
-# VNDK
-PRODUCT_PACKAGES += \
-    libui-v32
 
 # Vibrator
 PRODUCT_PACKAGES += \
