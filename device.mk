@@ -55,6 +55,9 @@ $(call inherit-product, hardware/dolby/dolby.mk)
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth-service.mediatek
 
+PRODUCT_PACKAGES += \
+   vendor.mediatek.hardware.bluetooth.audio@2.1.vendor
+
 # ConfigStore
 PRODUCT_PACKAGES += \
     disable_configstore
