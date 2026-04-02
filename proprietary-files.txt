@@ -1233,8 +1233,6 @@ vendor/etc/virtual-spn-conf-by-efspn.xml
 vendor/etc/virtual-spn-conf-by-imsi.xml
 
 # Radio (IMS)
-system/framework/mediatek-common.jar
-system/framework/mediatek-framework.jar
 system/framework/mediatek-ims-base.jar
 system/framework/mediatek-ims-common.jar
 system/framework/mediatek-ims-extension-plugin.jar
