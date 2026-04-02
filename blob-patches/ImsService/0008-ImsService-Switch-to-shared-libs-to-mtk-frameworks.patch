@@ -5,19 +5,17 @@ Subject: [PATCH 8/9] ImsService: Switch to shared libs to mtk frameworks
 
 Signed-off-by: Saikrishna1504 <saikrishna26918@gmail.com>
 ---
- AndroidManifest.xml | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ AndroidManifest.xml | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 0226ddc..182d92d 100644
+index 0226ddc..20d6fcc 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -48,6 +48,13 @@
+@@ -48,6 +48,11 @@
          <uses-library android:name="com.mediatek.ims.plugin" android:required="false"/>
          <uses-library android:name="com.mediatek.ims.legacy" android:required="false"/>
          <uses-library android:name="com.mediatek.wfo.legacy" android:required="false"/>
-+        <uses-library android:name="mediatek-common" android:required="true"/>
-+        <uses-library android:name="mediatek-framework" android:required="true"/>
 +        <uses-library android:name="mediatek-ims-base" android:required="true"/>
 +        <uses-library android:name="mediatek-ims-common" android:required="true"/>
 +        <uses-library android:name="mediatek-telephony-common" android:required="true"/>
@@ -26,13 +24,12 @@ index 0226ddc..182d92d 100644
          <service android:name="com.mediatek.ims.MtkDynamicImsService" android:permission="android.permission.BIND_IMS_SERVICE">
              <meta-data android:name="android.telephony.ims.MMTEL_FEATURE" android:value="true"/>
              <meta-data android:name="android.telephony.ims.EMERGENCY_MMTEL_FEATURE" android:value="true"/>
-@@ -56,4 +63,4 @@
+@@ -56,4 +61,4 @@
              </intent-filter>
          </service>
      </application>
 -</manifest>
 \ No newline at end of file
 +</manifest>
--- 
-2.43.0
-
+--
+2.47.3
