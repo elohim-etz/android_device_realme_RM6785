@@ -101,6 +101,9 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.example \
     android.hardware.health-service.example_recovery
 
+# IMS
+$(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.mt6785 \
