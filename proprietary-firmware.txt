@@ -15,5 +15,5 @@ spmfw.img
 sspm.img
 tee.img
 
-# Patched lk by @R0rt1z2
-lk.img|240a28ca64af0fca12276ac5851b9515ba70bd96
+# Patched lk by @R0rt1z2 & @antagonizzzt
+lk.img|61de5d94b0140561269e05f5c1c06e3e0a001f06
