@@ -73,7 +73,7 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     $(DEVICE_PATH)/vintf/device_framework_matrix.xml \
     hardware/mediatek/vintf/mediatek_framework_compatibility_matrix.xml
 
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/vintf/manifest.xml
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true

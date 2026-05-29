@@ -45,12 +45,6 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
-# Dolby
-PRODUCT_PACKAGES += \
-    LunarisDolby
-
-$(call inherit-product, hardware/dolby/dolby.mk)
-
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth-service.mediatek
