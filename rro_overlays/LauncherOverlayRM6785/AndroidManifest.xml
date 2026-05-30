@@ -9,5 +9,5 @@
     <overlay
         android:isStatic="true"
         android:priority="550"
-        android:targetPackage="com.google.android.apps.nexuslauncher" />
+        android:targetPackage="com.android.launcher3" />
 </manifest>
