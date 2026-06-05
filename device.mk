@@ -117,7 +117,6 @@ PRODUCT_PACKAGES += \
     init.modem.rc \
     init.mt6785.rc \
     init.mt6785.power.rc \
-    init.mt6785.usb.rc \
     init.project.rc \
     init.sensor_1_0.rc \
     init.RM6785.rc \
@@ -358,9 +357,9 @@ AB_OTA_UPDATER := false
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb-service.mediatek
-
-$(call soong_config_set_bool,mediatek_gadget,use_custom_usb_gadget_rc,true)
+    android.hardware.usb-service.mediatek \
+    android.hardware.usb.gadget-service.mediatek \
+    init.mt6785.usb.rc
 
 # Vibrator
 PRODUCT_PACKAGES += \
