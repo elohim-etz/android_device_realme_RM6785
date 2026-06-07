@@ -346,6 +346,8 @@ AB_OTA_UPDATER := false
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.mediatek-legacy
 
+$(call soong_config_set_bool,mediatek_gadget,use_custom_usb_gadget_rc,true)
+
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.mediatek
