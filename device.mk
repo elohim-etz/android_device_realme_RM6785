@@ -163,6 +163,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MtkInCallService
 
+# Platform
+TARGET_BOARD_PLATFORM := mt6785
+
 # Reduce system server verbosity.
 PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
 PRODUCT_OTHER_JAVA_DEBUG_INFO := false
@@ -170,6 +173,9 @@ PRODUCT_OTHER_JAVA_DEBUG_INFO := false
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
+
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -184,6 +190,9 @@ PRODUCT_COPY_FILES += \
 # Neural Networks
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor:64
+
+# Overlays
+$(call inherit-product, hardware/mediatek/overlay/mssi.mk)
 
 PRODUCT_PACKAGES += \
     ApertureOverlayRM6785 \
@@ -203,8 +212,7 @@ PRODUCT_PACKAGES += \
     SettingsProviderOverlayNarzo \
     SettingsProviderOverlayNarzo20Pro \
     SettingsProviderOverlayNarzo30 \
-    SystemUIOverlayRM6785 \
-    TelephonyOverlayRM6785
+    SystemUIOverlayRM6785
 
 # RRO (Runtime Resource Overlay)
 PRODUCT_ENFORCE_RRO_TARGETS += *
@@ -355,8 +363,6 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    TetheringConfigOverlayRM6785 \
-    WifiOverlayRM6785 \
     hostapd \
     wpa_supplicant \
     android.hardware.wifi-service
