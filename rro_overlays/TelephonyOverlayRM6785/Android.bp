@@ -1,4 +1,0 @@
-runtime_resource_overlay {
-    name: "TelephonyOverlayRM6785",
-    vendor: true,
-}
