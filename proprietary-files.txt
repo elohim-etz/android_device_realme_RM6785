@@ -840,7 +840,7 @@ vendor/etc/mpe.conf
 vendor/etc/slp_conf
 vendor/lib/hw/gps.default.so
 vendor/lib/libDR.so
-vendor/lib/libmnl.so;DISABLE_DEPS
+vendor/lib/libmnl.so:vendor/lib/libmnl-mtk.so;FIX_SONAME;DISABLE_DEPS
 vendor/lib64/hw/android.hardware.gnss@2.1-impl-mediatek.so
 vendor/lib64/hw/gps.default.so
 
