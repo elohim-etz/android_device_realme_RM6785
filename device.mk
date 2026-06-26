@@ -60,10 +60,6 @@ $(call soong_config_set_bool,fastbootd,bypass_lock_state,true)
 # Camera
 $(call soong_config_set,libcameraservice,ext_lib,//$(LOCAL_PATH):libcameraservice_extension.RM6785)
 
-# ConfigStore
-PRODUCT_PACKAGES += \
-    disable_configstore
-
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
