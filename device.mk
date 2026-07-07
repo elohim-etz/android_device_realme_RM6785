@@ -326,7 +326,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek \
-    hardware/mediatek/wlan/wifi_hal \
     hardware/mediatek/libmtkperf_client \
     hardware/lineage/interfaces/power-libperfmgr \
     $(LOCAL_PATH)
@@ -369,8 +368,11 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Wi-Fi
+$(call soong_config_set_bool,mediatek_wifi_hal,use_pre_u_qpr2_struct,true)
+
 PRODUCT_PACKAGES += \
     hostapd \
+    libwifi-hal-wrapper \
     wpa_supplicant \
     android.hardware.wifi-service
 
