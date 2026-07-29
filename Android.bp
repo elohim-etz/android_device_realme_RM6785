@@ -6,10 +6,6 @@ soong_namespace {
     ],
 }
 
-cc_library_shared {
-    name: "libldacBT_bco",
-}
-
 prebuilt_hidl_interfaces {
     name: "hidl_pplagent_interface",
     interfaces: [

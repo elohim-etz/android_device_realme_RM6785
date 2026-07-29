@@ -31,8 +31,7 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default:32 \
     audio.primary.default:32 \
     audio.r_submix.default:32 \
-    audio.usb.default:32 \
-    libldacBT_bco
+    audio.usb.default:32
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
