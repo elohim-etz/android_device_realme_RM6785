@@ -101,6 +101,8 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('__aeabi_memmove')
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
+    'vendor/etc/mtk_omx_core.cfg': blob_fixup()
+        .regex_replace(r'OMX\.MTK\.VIDEO\.DECODER\.VP9.*[\s\S]*?\n', ''),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
