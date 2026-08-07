@@ -357,8 +357,7 @@ PRODUCT_PACKAGES += \
 # VNDK
 PRODUCT_PACKAGES += \
     libbase_shim \
-    libui_shim \
-    libui-v32
+    libui_shim
 
 # Wi-Fi
 $(call soong_config_set_bool,mediatek_wifi_hal,use_pre_u_qpr2_struct,true)
