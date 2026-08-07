@@ -90,9 +90,17 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('NXPLOG_TML_LOGLEVEL=0x03', 'NXPLOG_TML_LOGLEVEL=0x01')
         .regex_replace('NFC_DEBUG_ENABLED=0x01', 'NFC_DEBUG_ENABLED=0x00'),
     'vendor/lib/libMtkOmxVdecEx.so': blob_fixup()
-        .replace_needed('libui.so', 'libui-v32.so')
+        .add_needed('libui_shim.so')
         .binary_regex_replace(b'ro.mtk_crossmount_support', b'ro.vendor.mtk_crossmount\x00')
         .binary_regex_replace(b'ro.mtk_deinterlace_support', b'ro.vendor.mtk_deinterlace\x00'),
+    ('vendor/lib/libthha.so', 'vendor/lib/libvcodec_oal.so', 'vendor/lib/libmp4enc_sa.ca7.so', 'vendor/lib/libvp8dec_sa.ca7.so', 'vendor/lib/libvp9dec_sa.ca7.so', 'vendor/lib/libh264enc_sa.ca7.so', 'vendor/lib/libvc1dec_sa.ca7.so', 'vendor/lib/libmp4enc_xa.ca7.so'): blob_fixup()
+        .clear_symbol_version('__aeabi_memclr')
+        .clear_symbol_version('__aeabi_memclr4')
+        .clear_symbol_version('__aeabi_memcpy')
+        .clear_symbol_version('__aeabi_memcpy4')
+        .clear_symbol_version('__aeabi_memmove')
+        .clear_symbol_version('__aeabi_memset')
+        .clear_symbol_version('__gnu_Unwind_Find_exidx'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

@@ -361,6 +361,7 @@ PRODUCT_PACKAGES += \
 # VNDK
 PRODUCT_PACKAGES += \
     libbase_shim \
+    libui_shim \
     libui-v32
 
 # V4A
