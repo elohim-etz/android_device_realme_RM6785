@@ -361,8 +361,7 @@ PRODUCT_PACKAGES += \
 # VNDK
 PRODUCT_PACKAGES += \
     libbase_shim \
-    libui_shim \
-    libui-v32
+    libui_shim
 
 # V4A
 $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
