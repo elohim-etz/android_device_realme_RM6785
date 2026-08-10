@@ -124,6 +124,20 @@ ro.lmk.thrashing_limit_decay=50
 # Power HAL
 vendor.powerhal.disp.idle_support=false
 
+# Miscellaneous
+ro.mediatek.version.branch=alps-mp-r0.mssi1.tc16sp-pr2
+ro.vendor.mediatek.version.branch=alps-mp-r0.mp1.tc16sp-pr2
+ro.vendor.mediatek.version.release=alps-mp-r0.mp1.tc16sp-pr2-V1.1
+ro.vendor.mtk_ufs_support=1
+ro.vendor.mtk_video_hevc_enc_support=1
+ro.vendor.mtk_widevine_drm_l1_support=1
+ro.vendor.mtk_wfd_support=1
+ro.vendor.mtk_wapi_support=1
+persist.adb.nonblocking_ffs=0
+ro.logd.kernel=false
+persist.log.tag=I
+log.tag=I
+
 # MTK
 ro.vendor.mediatek.platform=MT6785
 
