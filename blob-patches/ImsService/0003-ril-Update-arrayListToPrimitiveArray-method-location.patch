@@ -1,12 +1,13 @@
-From 83c42ff1b0c59179d25f062bc8eccc34c36b6db0 Mon Sep 17 00:00:00 2001
+From ed5e9934486c3d0b0378db4c86554cafccdc09f0 Mon Sep 17 00:00:00 2001
 From: SamarV-121 <samarvispute121@pm.me>
 Date: Fri, 26 Aug 2022 19:32:45 +0530
-Subject: [PATCH 3/9] ril: Update arrayListToPrimitiveArray method location for
+Subject: [PATCH 3/8] ril: Update arrayListToPrimitiveArray method location for
  T
 
 W System.err(3757): java.lang.NoSuchMethodError: No static method arrayListToPrimitiveArray(Ljava/util/ArrayList;)[B in class Lcom/android/internal/telephony/RIL; or its super classes (declaration of 'com.android.internal.telephony.RIL' appears in /system/framework/telephony-common.jar)
 
 Change-Id: Id27e5764628b8eb4240d7a88c3167654b1b3444a
+Signed-off-by: Naveen <133593113+elohim-etz@users.noreply.github.com>
 ---
  smali/com/mediatek/ims/ril/ImsRadioIndication.smali | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
@@ -34,5 +35,5 @@ index ea54c9a..b38cfe9 100644
      move-result-object v1
  
 -- 
-2.43.0
+2.55.0
 

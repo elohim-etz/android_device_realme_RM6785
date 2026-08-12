@@ -1,7 +1,7 @@
-From 7666e1797b4631b7e3f360295abad7fb14cdd358 Mon Sep 17 00:00:00 2001
+From a65d114ccd47255a965592b75264b8d12ef09580 Mon Sep 17 00:00:00 2001
 From: SamarV-121 <samarvispute121@pm.me>
 Date: Sun, 29 Jan 2023 12:38:17 +0530
-Subject: [PATCH 6/9] ImsService: Fix NPE on ImsCallSessionProxy
+Subject: [PATCH 6/8] ImsService: Fix NPE on ImsCallSessionProxy
 
 01-29 11:52:18.220  6741  6741 E AndroidRuntime: FATAL EXCEPTION: main
 01-29 11:52:18.220  6741  6741 E AndroidRuntime: Process: com.mediatek.ims, PID: 6741
@@ -17,6 +17,7 @@ Subject: [PATCH 6/9] ImsService: Fix NPE on ImsCallSessionProxy
 01-29 11:52:18.220  6741  6741 E AndroidRuntime:        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
 
 Change-Id: I5fe3e49369eae6d8be90bbba865f67d1b8cf9a11
+Signed-off-by: Naveen <133593113+elohim-etz@users.noreply.github.com>
 ---
  .../com/mediatek/ims/ImsCallSessionProxy$MyHandler.smali | 9 +++++++++
  1 file changed, 9 insertions(+)
@@ -49,5 +50,5 @@ index be41882..3798b67 100644
  
      .line 1729
 -- 
-2.43.0
+2.55.0
 

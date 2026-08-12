@@ -1,10 +1,11 @@
-From 26f0f9bdcbaacd5783cbbc06aa7d98dcff809891 Mon Sep 17 00:00:00 2001
+From 4f43b577fc3f0154635e47198e15ad6cdbf4d387 Mon Sep 17 00:00:00 2001
 From: bengis32 <bengris32@protonmail.ch>
 Date: Sun, 28 Aug 2022 23:13:29 +0530
-Subject: [PATCH 4/9] ImsService: Patch out dependency on inCryptKeeperBounce()
+Subject: [PATCH 4/8] ImsService: Patch out dependency on inCryptKeeperBounce()
 
 Signed-off-by: bengis32 <bengris32@protonmail.ch>
 Change-Id: Iae038b4d42a11ff9bd4a9063ea9ed8e4e97e6a26
+Signed-off-by: Naveen <133593113+elohim-etz@users.noreply.github.com>
 ---
  smali/com/mediatek/wfo/impl/WfcHandler.smali     | 5 +----
  smali/com/mediatek/wfo/impl/WifiPdnHandler.smali | 5 +----
@@ -43,5 +44,5 @@ index a720678..96dcee6 100644
      if-nez v0, :cond_1
  
 -- 
-2.43.0
+2.55.0
 

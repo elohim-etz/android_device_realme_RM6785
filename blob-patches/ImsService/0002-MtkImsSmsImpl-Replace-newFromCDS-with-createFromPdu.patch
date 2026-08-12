@@ -1,7 +1,7 @@
-From d21eb1ab41b57353fe7026dedc9d903675adcf61 Mon Sep 17 00:00:00 2001
+From 02a4a4fd34a15d0faececc4345517f558e214cf7 Mon Sep 17 00:00:00 2001
 From: SamarV-121 <samarvispute121@pm.me>
 Date: Thu, 7 Apr 2022 09:04:40 +0530
-Subject: [PATCH 2/9] MtkImsSmsImpl: Replace newFromCDS() with createFromPdu()
+Subject: [PATCH 2/8] MtkImsSmsImpl: Replace newFromCDS() with createFromPdu()
 
  * https://github.com/LineageOS/android_frameworks_base/commit/c483107ac7dddc987998fdb5733c6a633e514b70
 
@@ -20,6 +20,7 @@ Subject: [PATCH 2/9] MtkImsSmsImpl: Replace newFromCDS() with createFromPdu()
 04-07 07:52:44.272  2200  2200 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1003)
 
 Change-Id: Ia07b5d818821d7a148c32c1a9e22ed0d15a31da5
+Signed-off-by: Naveen <133593113+elohim-etz@users.noreply.github.com>
 ---
  smali/com/mediatek/ims/feature/MtkImsSmsImpl.smali | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
@@ -38,5 +39,5 @@ index 2b67146..47afad2 100644
      move-result-object v0
  
 -- 
-2.43.0
+2.55.0
 

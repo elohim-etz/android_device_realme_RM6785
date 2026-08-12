@@ -1,9 +1,10 @@
-From 7d301a1d6a16b2141c1f62c167c775d1faf8563a Mon Sep 17 00:00:00 2001
+From c6c937d96c3bbac86241f4cfa0d7174f324eb23e Mon Sep 17 00:00:00 2001
 From: Erfan Abdi <erfangplus@gmail.com>
 Date: Wed, 31 Jan 2024 17:22:40 +0330
-Subject: [PATCH 8/9] ImsService: Switch to shared libs to mtk frameworks
+Subject: [PATCH 8/8] ImsService: Switch to shared libs to mtk frameworks
 
-Signed-off-by: Saikrishna1504 <saikrishna26918@gmail.com>
+Change-Id: I9d28da23ca7fdfb7a237b69d4624a86d2c096b9f
+Signed-off-by: Naveen <133593113+elohim-etz@users.noreply.github.com>
 ---
  AndroidManifest.xml | 9 ++++++++-
  1 file changed, 8 insertions(+), 1 deletion(-)
@@ -34,5 +35,5 @@ index 0226ddc..182d92d 100644
 \ No newline at end of file
 +</manifest>
 -- 
-2.43.0
+2.55.0
 

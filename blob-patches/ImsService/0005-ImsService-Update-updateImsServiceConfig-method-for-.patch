@@ -1,9 +1,10 @@
-From 5df68f38cdebddfabc25b7bb268b087602819bf6 Mon Sep 17 00:00:00 2001
+From fd271c54625dbe5e0465ff0b299bb15483d8eb7f Mon Sep 17 00:00:00 2001
 From: bengris32 <bengris32@protonmail.ch>
 Date: Wed, 21 Sep 2022 20:12:47 +0100
-Subject: [PATCH 5/9] ImsService: Update `updateImsServiceConfig` method for S
+Subject: [PATCH 5/8] ImsService: Update `updateImsServiceConfig` method for S
 
 Signed-off-by: bengris32 <bengris32@protonmail.ch>
+Signed-off-by: Naveen <133593113+elohim-etz@users.noreply.github.com>
 ---
  .../plugin/impl/ImsManagerOemPluginBase.smali    | 16 ++++++++++++----
  1 file changed, 12 insertions(+), 4 deletions(-)
@@ -40,5 +41,5 @@ index 91e5da9..1a7236a 100644
      return-void
  .end method
 -- 
-2.43.0
+2.55.0
 

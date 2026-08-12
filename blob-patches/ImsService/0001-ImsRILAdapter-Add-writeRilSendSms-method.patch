@@ -1,7 +1,7 @@
-From 2dbc9ec2816233fa135ccd7cffb4724928bb08b2 Mon Sep 17 00:00:00 2001
+From 82b2c6808e7bcfc3302805981872e814331cf694 Mon Sep 17 00:00:00 2001
 From: ironydelerium <42721860+ironydelerium@users.noreply.github.com>
 Date: Fri, 31 Dec 2021 02:20:28 -0800
-Subject: [PATCH 1/9] ImsRILAdapter: Add writeRilSendSms method
+Subject: [PATCH 1/8] ImsRILAdapter: Add writeRilSendSms method
 
 Reintroduce 'public void TelephonyMetrics.writeRilSendSms(int, int, int, int)'
 
@@ -28,6 +28,7 @@ Fixes https://github.com/phhusson/treble_experimentations/issues/2125.
 
 Co-authored-by: Sarah Vandomelen <sarah@sightworks.com>
 Change-Id: I37244803d31e496ce3f388c12290d1499bd115a0
+Signed-off-by: Naveen <133593113+elohim-etz@users.noreply.github.com>
 ---
  .../com/mediatek/ims/ril/ImsRILAdapter.smali  | 22 ++++++++++++++++++-
  1 file changed, 21 insertions(+), 1 deletion(-)
@@ -73,5 +74,5 @@ index a73d6b0..6a08b20 100644
      .locals 4
      .param p1, "ussiString"    # Ljava/lang/String;
 -- 
-2.43.0
+2.55.0
 

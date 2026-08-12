@@ -1,11 +1,12 @@
-From 564bb8bab16161efa20ad47f8db7b2be6aa47acb Mon Sep 17 00:00:00 2001
+From 3bcdee293b4a948400d9715e2d75a46425ceb3eb Mon Sep 17 00:00:00 2001
 From: SamarV-121 <samar@samarv121.dev>
 Date: Thu, 3 Aug 2023 13:16:15 +0530
-Subject: [PATCH 7/9] Update location of getSimStateForSlotIndex
+Subject: [PATCH 7/8] Update location of getSimStateForSlotIndex
 
 https://android-review.googlesource.com/q/topic:%22getSimStateForSlotIndex%22
 
 Change-Id: Ib365acacce8f8bdd0e52294474157c82682a3f09
+Signed-off-by: Naveen <133593113+elohim-etz@users.noreply.github.com>
 ---
  smali/com/mediatek/ims/ImsService$MyHandler.smali             | 2 +-
  smali/com/mediatek/ims/ImsService.smali                       | 2 +-
@@ -61,5 +62,5 @@ index b0c3323..cb9f1ae 100644
      move-result v1
  
 -- 
-2.43.0
+2.55.0
 
