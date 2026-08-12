@@ -16,22 +16,24 @@ import android.util.Log
 class DozeService : Service() {
     private lateinit var pickupSensor: PickupSensor
 
-    private val screenStateReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            when (intent.action) {
-                Intent.ACTION_SCREEN_ON -> onDisplayOn()
-                Intent.ACTION_SCREEN_OFF -> onDisplayOff()
+    private val screenStateReceiver =
+        object : BroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+                when (intent.action) {
+                    Intent.ACTION_SCREEN_ON -> onDisplayOn()
+                    Intent.ACTION_SCREEN_OFF -> onDisplayOff()
+                }
             }
         }
-    }
 
     override fun onCreate() {
         Log.d(TAG, "Creating service")
-        pickupSensor = PickupSensor(
-            this,
-            resources.getString(R.string.pickup_sensor_type),
-            resources.getFloat(R.dimen.pickup_sensor_value),
-        )
+        pickupSensor =
+            PickupSensor(
+                this,
+                resources.getString(R.string.pickup_sensor_type),
+                resources.getFloat(R.dimen.pickup_sensor_value),
+            )
 
         val screenStateFilter = IntentFilter()
         screenStateFilter.addAction(Intent.ACTION_SCREEN_ON)
