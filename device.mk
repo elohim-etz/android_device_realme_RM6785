@@ -197,6 +197,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor:64
 
+# OMX
+PRODUCT_PACKAGES += \
+    libstagefright_softomx.vendor \
+    libstagefright_softomx_plugin.vendor
+
 # Overlays
 $(call inherit-product, hardware/mediatek/overlay/mssi.mk)
 
