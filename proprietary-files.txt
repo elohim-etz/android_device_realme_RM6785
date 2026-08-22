@@ -1412,13 +1412,11 @@ odm/firmware/fastchg/20682/oplus_vooc_fw.bin
 # Wifi
 vendor/bin/stp_dump3
 vendor/bin/wfca
-vendor/bin/wlan_assistant
 vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
 vendor/etc/init/init.wfca.rc
 vendor/etc/init/init.wlan_drv.rc
 vendor/etc/init/init.wmt_drv.rc
-vendor/etc/init/wlan_assistant.rc
 vendor/etc/wifi/p2p_supplicant_overlay.conf
 vendor/etc/wifi/wpa_supplicant.conf
 vendor/etc/wifi/wpa_supplicant_overlay.conf
