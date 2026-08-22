@@ -1,9 +1,5 @@
 # All unpinned blobs are from RMX2002GDPR_11_C.19
 
-# AEE (Android Exception Enhancement)
-vendor/lib/libladder.so
-vendor/lib64/libladder.so
-
 # Audio
 vendor/lib/hw/audio.primary.mt6785.so
 vendor/lib/hw/sound_trigger.primary.mt6785.so
