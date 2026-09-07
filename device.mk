@@ -57,6 +57,9 @@ PRODUCT_PACKAGES += \
 # Bypass Lock State for Kaeru
 $(call soong_config_set_bool,fastbootd,bypass_lock_state,true)
 
+# Camera
+$(call soong_config_set,libcameraservice,ext_lib,//$(LOCAL_PATH):libcameraservice_extension.RM6785)
+
 # ConfigStore
 PRODUCT_PACKAGES += \
     disable_configstore

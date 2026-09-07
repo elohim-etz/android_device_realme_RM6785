@@ -13,3 +13,4 @@ type sysfs_otg_switch, fs_type, sysfs_type;
 type sysfs_sia81xx, fs_type, sysfs_type;
 type sysfs_virtual_sensor, fs_type, sysfs_type;
 type vendor_persist_camera_file, file_type;
+type vendor_torch_sysfs, fs_type, sysfs_type;

@@ -30,3 +30,9 @@ on post-fs-data
 
     chmod 0660 /dev/spm
     chown system system /dev/spm
+
+
+on init
+    #Torch_light
+    chown system cameraserver /sys/devices/platform/flashlights_mt6360/torchbrightness
+    chmod 0666 /sys/devices/platform/flashlights_mt6360/torchbrightness
