@@ -73,6 +73,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('android.hardware.sensors@1.0-convert-shared.so'),
     'system_ext/lib64/libimsma.so': blob_fixup()
         .replace_needed('libsink.so', 'libsink-mtk.so'),
+    'system_ext/lib64/libsink-mtk.so': blob_fixup()
+        .add_needed('libaudioclient_shim.so'),
     'system/framework/mediatek-telephony-base.jar': blob_fixup()
         .apktool_patch('blob-patches/mediatek-telephony-base/'),
     'system/priv-app/ImsService/ImsService.apk': blob_fixup()
