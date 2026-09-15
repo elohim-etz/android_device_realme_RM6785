@@ -221,6 +221,7 @@ PRODUCT_PACKAGES += \
     DialerOverlayRM6785 \
     FrameworksOverlayRMX2151 \
     FrameworksOverlayRMX2161 \
+    NcmTetheringOverlay \
     FrameworksResOverlayRM6785 \
     LauncherOverlayRM6785 \
     LineageSDKOverlayRM6785 \
