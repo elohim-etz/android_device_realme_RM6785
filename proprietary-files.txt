@@ -1233,8 +1233,6 @@ system/framework/mediatek-ims-base.jar
 system/framework/mediatek-ims-common.jar
 system/framework/mediatek-ims-extension-plugin.jar
 system/framework/mediatek-ims-legacy.jar
-system/framework/mediatek-telecom-common.jar
-system/framework/mediatek-telephony-common.jar
 system/priv-app/ImsService/ImsService.apk
 
 # Radio (IMS) - https://pastebin.com/raw/Wa3EZpPr
