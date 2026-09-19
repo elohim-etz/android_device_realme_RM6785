@@ -1,5 +1,6 @@
 # Display
 ro.launcher.blur.appLaunch=0
+persist.sys.vk_use_ogl_for_media=true
 
 # Dex2oat
 dalvik.vm.dex2oat-cpu-set=4,5,6,7
