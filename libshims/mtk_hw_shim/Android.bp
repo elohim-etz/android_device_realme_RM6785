@@ -1,0 +1,13 @@
+//
+// Copyright (C) 2024 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libmtk_hw_shim",
+    srcs: ["mtk_hw_shim.cpp"],
+    shared_libs: ["libdl"],
+    vendor: true,
+    compile_multilib: "32",
+}

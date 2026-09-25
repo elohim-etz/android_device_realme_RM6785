@@ -372,6 +372,8 @@ PRODUCT_PACKAGES += \
 # VNDK
 PRODUCT_PACKAGES += \
     libbase_shim \
+    libmtk_hw_shim \
+    libui-v32 \
     libui_shim
 
 # Wi-Fi
