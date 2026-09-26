@@ -31,6 +31,13 @@ void property_override(const char* prop, const char* value, bool add = true) {
     }
 }
 
+void reduce_lag() {
+        property_override("ro.config.avoid_gfx_accel", "true");
+	property_override("ro.surface_flinger.supports_background_blur", "false");
+	property_override("ro.sf.blurs_are_expensive", "true");
+	property_override("persist.sys.sf.disable_blurs", "true");
+}
+
 void set_ro_build_prop(const std::string& prop, const std::string& value,
                        bool product = true) {
     std::string prop_name;
@@ -127,6 +134,7 @@ void set_device() {
 }
 
 void vendor_load_properties() {
+    reduce_lag();
 #ifndef __ANDROID_RECOVERY__
     set_device();
 #endif
