@@ -1,0 +1,29 @@
+//
+// Copyright (C) 2023 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_prebuilt_library_shared {
+    name: "libui-v32",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["libui-v32.so"],
+        },
+    },
+    compile_multilib: "32",
+    check_elf_files: false,
+    vendor: true,
+    shared_libs: ["android.hardware.graphics.common-V2-ndk_platform"],
+}
+
+cc_library_shared {
+    name: "android.hardware.graphics.common-V2-ndk_platform",
+    shared_libs: [
+        "android.hardware.graphics.common-V2-ndk",
+    ],
+    vendor: true,
+}
