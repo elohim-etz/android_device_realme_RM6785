@@ -90,7 +90,7 @@ BOARD_BOOTCONFIG += \
     androidboot.serialconsole=0
 
 # Partitions (Dynamic)
-ifeq ($(WITH_GMS),true)
+ifeq ($(WITH_GAPPS),true)
 TARGET_RO_FILE_SYSTEM_TYPE ?= erofs
 else
 TARGET_RO_FILE_SYSTEM_TYPE ?= ext4
@@ -105,7 +105,7 @@ BOARD_EROFS_COMPRESSOR := lz4hc,12
 BOARD_EROFS_PCLUSTER_SIZE := 262144
 
 ifeq ($(TARGET_RO_FILE_SYSTEM_TYPE),ext4)
--include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/infinity/config/BoardConfigReservedSize.mk
 endif
 
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := $(TARGET_RO_FILE_SYSTEM_TYPE)

@@ -13,10 +13,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 $(call inherit-product, device/realme/RM6785/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
+
+# InfinityX Flags
+INFINITY_BUILD_TYPE := OFFICIAL
+INFINITY_MAINTAINER := 𝙴𝙻𝙾𝙷𝙸𝙼
+TARGET_SUPPORTS_BLUR := true
+WITH_GAPPS := true
+TARGET_SHIPS_FULL_GAPPS := false
+TARGET_SHIPS_GOOGLE_DIALER := false
+USE_MOTO_CALCULATOR := true
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_RM6785
+PRODUCT_NAME := infinity_RM6785
 PRODUCT_DEVICE := RM6785
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := RM6785

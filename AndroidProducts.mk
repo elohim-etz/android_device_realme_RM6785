@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_RM6785.mk
+    $(LOCAL_DIR)/infinity_RM6785.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_RM6785-user \
-    lineage_RM6785-userdebug \
-    lineage_RM6785-eng
+    infinity_RM6785-user \
+    infinity_RM6785-userdebug \
+    infinity_RM6785-eng
