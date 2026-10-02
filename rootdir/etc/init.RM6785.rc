@@ -106,3 +106,15 @@ on property:ro.vendor.device=*
 on property:sys.boot_completed=1
     # Only owner can acces this node
     chmod 440 /proc/net/unix
+
+service logger /system/bin/logcat -b all -D -f /metadata/boot_log.txt
+    class main
+    user root
+    group root system
+
+on boot
+    rm /metadata/boot_log.txt
+    start logger
+
+on property:sys.boot_completed=1
+    stop logger
