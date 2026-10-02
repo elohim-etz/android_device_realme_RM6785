@@ -946,7 +946,7 @@ vendor/lib/libMtkOmxApeDec.so
 vendor/lib/libMtkOmxCore.so
 vendor/lib/libMtkOmxGsmDec.so
 vendor/lib/libMtkOmxMp3Dec.so
-vendor/lib/libMtkOmxVdecEx.so
+vendor/lib/libMtkOmxVdecEx.so;DISABLE_CHECKELF
 vendor/lib/libMtkOmxVenc.so
 vendor/lib/libMtkOmxWmaDec.so
 vendor/lib/libbwc.so
