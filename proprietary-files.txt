@@ -1229,16 +1229,16 @@ vendor/etc/virtual-spn-conf-by-efspn.xml
 vendor/etc/virtual-spn-conf-by-imsi.xml
 
 # Radio (IMS)
-system/framework/mediatek-ims-base.jar
-system/framework/mediatek-ims-common.jar
-system/framework/mediatek-ims-extension-plugin.jar
-system/framework/mediatek-ims-legacy.jar
-system/framework/mediatek-telecom-common.jar
-system/framework/mediatek-telephony-common.jar
-system/priv-app/ImsService/ImsService.apk
+system/framework/mediatek-ims-base.jar:system_ext/framework/mediatek-ims-base.jar
+system/framework/mediatek-ims-common.jar:system_ext/framework/mediatek-ims-common.jar
+system/framework/mediatek-ims-extension-plugin.jar:system_ext/framework/mediatek-ims-extension-plugin.jar
+system/framework/mediatek-ims-legacy.jar:system_ext/framework/mediatek-ims-legacy.jar
+system/framework/mediatek-telecom-common.jar:system_ext/framework/mediatek-telecom-common.jar
+system/framework/mediatek-telephony-common.jar:system_ext/framework/mediatek-telephony-common.jar
+system/priv-app/ImsService/ImsService.apk:system_ext/priv-app/ImsService/ImsService.apk
 
 # Radio (IMS) - https://pastebin.com/raw/Wa3EZpPr
-system/framework/mediatek-telephony-base.jar|d0f18c1c0fc4894fe31b0148cbf33387a1b0bf3d
+system/framework/mediatek-telephony-base.jar:system_ext/framework/mediatek-telephony-base.jar|d0f18c1c0fc4894fe31b0148cbf33387a1b0bf3d
 
 # Radio (Oplus)
 odm/lib64/vendor.oplus.hardware.appradio@1.0.so

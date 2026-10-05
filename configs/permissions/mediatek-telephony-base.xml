@@ -16,7 +16,6 @@
 <permissions>
     <library
         name="mediatek-telephony-base"
-        file="/system/framework/mediatek-telephony-base.jar"
+        file="/system_ext/framework/mediatek-telephony-base.jar"
     />
 </permissions>
-

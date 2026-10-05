@@ -16,7 +16,6 @@
 <permissions>
     <library
         name="mediatek-telecom-common"
-        file="/system/framework/mediatek-telecom-common.jar"
+        file="/system_ext/framework/mediatek-telecom-common.jar"
     />
 </permissions>
-
