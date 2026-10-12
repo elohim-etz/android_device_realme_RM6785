@@ -9,7 +9,6 @@ vendor.fingerprint.                         u:object_r:vendor_fingerprint_prop:s
 # Media
 ro.vendor.mtk_crossmount                    u:object_r:vendor_mtk_crossmount_prop:s0
 ro.vendor.mtk_deinterlace                   u:object_r:vendor_mtk_deinterlace_prop:s0
-ro.vendor.mtk_hdr_video_support             u:object_r:vendor_mtk_default_prop:s0
 
 # Vendor device
 ro.vendor.device                            u:object_r:vendor_device_prop:s0
