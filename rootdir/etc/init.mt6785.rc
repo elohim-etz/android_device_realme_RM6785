@@ -297,6 +297,8 @@ on post-fs-data
     chown mediacodec system /dev/video0
     chmod 0666 /dev/video1
     chown mediacodec system /dev/video1
+    chmod 0666 /dev/video2
+    chown mediacodec system /dev/video2
     mkdir /data/vendor/vcodec 0770 media system
     mkdir /data/vendor/vcodec/log 0770 media system
     mkdir /data/vendor/vcodec/in 0770 media system
@@ -840,6 +842,7 @@ on property:sys.boot_completed=1
     write /proc/sys/kernel/sched_stune_task_threshold -1
     write /proc/perfmgr/boost_ctrl/cpu_ctrl/boot_freq "-1 -1 -1 -1"
     write /sys/devices/platform/10012000.dvfsrc/helio-dvfsrc/dvfsrc_req_ddr_opp -1
+    restart android-hardware-media-c2-hal-1-2
 
 # reset mdmode when modem crash happens in ATM
 on property:vendor.mtk.md1.status=reset
