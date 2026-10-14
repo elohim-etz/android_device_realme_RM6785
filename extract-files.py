@@ -90,19 +90,72 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('NXPLOG_FWDNLD_LOGLEVEL=0x03', 'NXPLOG_FWDNLD_LOGLEVEL=0x01')
         .regex_replace('NXPLOG_TML_LOGLEVEL=0x03', 'NXPLOG_TML_LOGLEVEL=0x01')
         .regex_replace('NFC_DEBUG_ENABLED=0x01', 'NFC_DEBUG_ENABLED=0x00'),
-    'vendor/lib/libMtkOmxVdecEx.so': blob_fixup()
-        .replace_needed('libui.so', 'libui-v32.so')
-        .add_needed('libmtk_hw_shim.so')
-        .binary_regex_replace(b'ro.mtk_crossmount_support', b'ro.vendor.mtk_crossmount\x00')
-        .binary_regex_replace(b'ro.mtk_deinterlace_support', b'ro.vendor.mtk_deinterlace\x00'),
-    ('vendor/lib/libthha.so', 'vendor/lib/libvcodec_oal.so', 'vendor/lib/libmp4enc_sa.ca7.so', 'vendor/lib/libvp8dec_sa.ca7.so', 'vendor/lib/libvp9dec_sa.ca7.so', 'vendor/lib/libh264enc_sa.ca7.so', 'vendor/lib/libvc1dec_sa.ca7.so', 'vendor/lib/libmp4enc_xa.ca7.so'): blob_fixup()
-        .clear_symbol_version('__aeabi_memclr')
-        .clear_symbol_version('__aeabi_memclr4')
-        .clear_symbol_version('__aeabi_memcpy')
-        .clear_symbol_version('__aeabi_memcpy4')
-        .clear_symbol_version('__aeabi_memmove')
-        .clear_symbol_version('__aeabi_memset')
-        .clear_symbol_version('__gnu_Unwind_Find_exidx'),
+    'vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b': blob_fixup()
+        .replace_needed('libavservices_minijail_vendor.so', 'libavservices_minijail.so')
+        .replace_needed('libcodec2_hidl@1.0.so', 'libcodec2_hidl@1.0-v31.so')
+        .replace_needed('libcodec2_hidl@1.1.so', 'libcodec2_hidl@1.1-v31.so')
+        .replace_needed('libcodec2_hidl@1.2.so', 'libcodec2_hidl@1.2-v31.so')
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so'),
+
+    'vendor/lib64/libcodec2_hidl@1.0-v31.so': blob_fixup()
+        .replace_needed('libstagefright_bufferqueue_helper.so', 'libstagefright_bufferqueue_helper-v33.so')
+        .replace_needed('libcodec2_hidl_plugin.so', 'libcodec2_hidl_plugin-v31.so')
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so')
+        .replace_needed('libui.so', 'libui-v34.so')
+        .add_needed('libbase_shim.so'),
+
+    'vendor/lib64/libcodec2_hidl@1.1-v31.so': blob_fixup()
+        .replace_needed('libstagefright_bufferqueue_helper.so', 'libstagefright_bufferqueue_helper-v33.so')
+        .replace_needed('libcodec2_hidl@1.0.so', 'libcodec2_hidl@1.0-v31.so')
+        .replace_needed('libcodec2_hidl_plugin.so', 'libcodec2_hidl_plugin-v31.so')
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so')
+        .replace_needed('libui.so', 'libui-v34.so')
+        .add_needed('libbase_shim.so'),
+
+    'vendor/lib64/libcodec2_hidl@1.2-v31.so': blob_fixup()
+        .replace_needed('libstagefright_bufferqueue_helper.so', 'libstagefright_bufferqueue_helper-v33.so')
+        .replace_needed('libcodec2_hidl@1.0.so', 'libcodec2_hidl@1.0-v31.so')
+        .replace_needed('libcodec2_hidl@1.1.so', 'libcodec2_hidl@1.1-v31.so')
+        .replace_needed('libcodec2_hidl_plugin.so', 'libcodec2_hidl_plugin-v31.so')
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so')
+        .replace_needed('libui.so', 'libui-v34.so')
+        .add_needed('libbase_shim.so'),
+
+    'vendor/lib64/libcodec2_hidl_plugin-v31.so': blob_fixup()
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so'),
+
+    ('vendor/lib64/libcodec2_mtk_c2store.so',
+        'vendor/lib64/libcodec2_vpp_qt_plugin.so',
+        'vendor/lib64/libcodec2_vpp_rs_plugin.so'): blob_fixup()
+        .replace_needed('libcodec2_soft_common.so', 'libcodec2_soft_common-v31.so')
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so')
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so')
+        .replace_needed('libsfplugin_ccodec_utils.so', 'libsfplugin_ccodec_utils-v31.so'),
+
+    ('vendor/lib64/libcodec2_mtk_vdec.so',
+        'vendor/lib64/libcodec2_mtk_venc.so'): blob_fixup()
+        .replace_needed('libcodec2_soft_common.so', 'libcodec2_soft_common-v31.so')
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so')
+        .replace_needed('libformatter.so', 'libformatter_mtk.so')
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so')
+        .replace_needed('libsfplugin_ccodec_utils.so', 'libsfplugin_ccodec_utils-v31.so')
+        .replace_needed('libui.so', 'libui-v34.so'),
+
+    'vendor/lib64/libcodec2_soft_common-v31.so': blob_fixup()
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so')
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so')
+        .replace_needed('libsfplugin_ccodec_utils.so', 'libsfplugin_ccodec_utils-v31.so'),
+
+    'vendor/lib64/libcodec2_vndk-v31.so': blob_fixup()
+        .replace_needed('libui.so', 'libui-v34.so')
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
+
+    'vendor/lib64/libsfplugin_ccodec_utils-v31.so': blob_fixup()
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so'),
+
+    'vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml': blob_fixup()
+        .regex_replace('1.1', '1.2'),
+
 }  # fmt: skip
 
 module = ExtractUtilsModule(
