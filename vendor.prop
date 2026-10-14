@@ -130,7 +130,10 @@ ro.vendor.mtk_nn.option=D,E,F,Z
 ro.vendor.mtk_nn_quant_preferred=1
 ro.vendor.mtk_nn_support=1
 
-# OMX
+# Media
+debug.stagefright.ccodec=4
+debug.stagefright.omx_default_rank=1000
+debug.stagefright.c2inputsurface=-1
 ro.vendor.mtk_config_max_dram_size=0x800000000
 ro.vendor.mtk_sec_video_path_support=1
 ro.vendor.mtk_tee_gp_support=1
