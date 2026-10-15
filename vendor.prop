@@ -76,6 +76,9 @@ debug.sf.auto_latch_unsignaled=1
 debug.sf.enable_transaction_tracing=false
 debug.sf.enable_egl_image_tracker=0
 debug.sf.predict_hwc_composition_strategy=0
+debug.sf.treat_170m_as_sRGB=1
+persist.sys.sf.color_saturation=1.0
+persist.sys.sf.native_mode=0
 debug.sf.recomputecrop=0
 debug.sf.use_phase_offsets_as_durations=1
 debug.sf.late.sf.duration=27600000
@@ -142,6 +145,7 @@ vendor.mtk.vdec.waitkeyframeforplay=7
 # PQ
 ro.vendor.mtk_pq_color_mode=1
 ro.vendor.mtk_pq_support=2
+persist.vendor.sys.pq.hdr.en=1
 
 # Phantom process monitoring
 sys.fflag.override.settings_enable_monitor_phantom_procs=false
