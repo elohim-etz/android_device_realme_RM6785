@@ -860,7 +860,6 @@ vendor/etc/MNL_Config.xml
 vendor/bin/lbs_hidl_service
 vendor/etc/init/lbs_hidl_service.rc
 vendor/lib64/lbs_hidl_service-impl.so
-vendor/lib64/vendor.mediatek.hardware.lbs@1.0.so
 
 # Graphics
 vendor/bin/hw/vendor.mediatek.hardware.gpu@1.0-service
@@ -1122,14 +1121,12 @@ vendor/etc/init/netdagent.rc
 vendor/etc/init/networksetting.rc
 vendor/lib/libsysenv.so
 vendor/lib/libwo.so
-vendor/lib/vendor.mediatek.hardware.netdagent@1.0.so
 vendor/lib64/libforkexecwrap.so
 vendor/lib64/libifcutils_mtk.so
 vendor/lib64/libmtktinyxml.so
 vendor/lib64/libsysenv.so
 vendor/lib64/libwo.so
 vendor/lib64/vendor.mediatek.hardware.mdmonitor@1.0.so
-vendor/lib64/vendor.mediatek.hardware.netdagent@1.0.so
 
 # Radio (Firmware)
 vendor/firmware/em_filter_1_ulwctg_n.bin
@@ -1146,7 +1143,7 @@ vendor/bin/ccci_rpcd|514657a83e95fcff485581b7eb41698eaba14636
 vendor/bin/charon|5d5899c5ca55bb401cc84005cb1c2685d73c2555
 vendor/bin/epdg_wod|f5a9343cb8a8aefc225efe30d27ad7c7384058cb
 vendor/bin/gsm0710muxd|2501f7f5ef1784045ef5bcb70b186fcf70d0ce0d
-vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek|52c6e2407887a53e88c034524e1570a85f30ea65
+vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek|0ff8ca8cde69bee3a5face0e746c897995986b5c
 vendor/bin/hw/mtkfusionrild|55a42b639209536dd13ecf9025e6010eb2c02945|2098431943b4165871e46206dc1a15eb7df407f4
 vendor/bin/ipsec_mon|8b8e9c4cf14e454153314b36169d2a7ac3d71ecb
 vendor/bin/md_monitor|55e899f051da431a11d42f6d215f2cd4926e6b7f
@@ -1271,7 +1268,7 @@ vendor/lib64/libmtkrilutils.so|282e810a2d5372c09e4e0a0407ab6e70209f9e2f
 vendor/lib64/libmtksysutils.so|161a637e6b7c6c740b3c449a94bbfe284df57e26
 vendor/lib64/libmtkutils.so|cdfbdc3069a9b25d410e1f1de62aa3878d34ff7c
 vendor/lib64/libratconfig.so|9b967fc89d4ae220935a596b4331b3eaf35227ef
-vendor/lib64/librilfusion.so|58a22c32b58b8c34e02f9b4143985740aa0db82c
+vendor/lib64/librilfusion.so|58a22c32b58b8c34e02f9b4143985740aa0db82c|635b7e69e41c66629d007d7fa44f12534764f27d
 vendor/lib64/libsimaka.so|faafb2367cf238893e45a5840c523db02b838e7b
 vendor/lib64/libsimlock.so|b38f1959684497b8515bff9ff4fcd8f4819c6e61
 vendor/lib64/libsimmelock.so|c204adf7eaf183d88c289a9ff7506e1db9008911
@@ -1288,8 +1285,7 @@ vendor/lib64/libvia-ril.so|463cc32077f780a02da8b45b5e45403502ada3b3
 vendor/lib64/libviamipc-ril.so|8d486e5e860f0a6bcc36da886b93a1e2533b58f0
 vendor/lib64/libwpfa.so|7d312150d3c11b20337c839ce1e70d10f508a487
 vendor/lib64/vendor.mediatek.hardware.clientapi@1.0.so|b70d776a8d4840f673a39f2a096e0657ddfbb202
-vendor/lib64/vendor.mediatek.hardware.mtkradioex@2.0.so|a2c4bed29dcf0766f636ce5a9ecf905af0e96634
-vendor/lib64/vendor.mediatek.hardware.mtkradioex@3.0.so|6b856ac7c6e64bcf2c56d8a528686ba7fea6adae
+vendor/lib64/vendor.mediatek.hardware.mtkradioex@3.0.so:vendor/lib64/vendor.mediatek.hardware.mtkradioex@3.0-v31.so;FIX_SONAME|6b856ac7c6e64bcf2c56d8a528686ba7fea6adae|4649bd9a19a01af77838f49aa5d803c2aeec3deb
 
 # Radio (Configs)
 vendor/etc/ipsec/ipsec.d/cacerts/DigiCertGlobalRootCA.crt

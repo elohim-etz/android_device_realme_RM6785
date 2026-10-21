@@ -215,6 +215,9 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libsfplugin_ccodec_utils-v31.so': blob_fixup()
         .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk-v31.so'),
 
+    ('vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek', 'vendor/lib64/librilfusion.so'): blob_fixup()
+        .replace_needed('vendor.mediatek.hardware.mtkradioex@3.0.so', 'vendor.mediatek.hardware.mtkradioex@3.0-v31.so'),
+
     'vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml': blob_fixup()
         .regex_replace('1.1', '1.2'),
 
