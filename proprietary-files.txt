@@ -940,7 +940,6 @@ vendor/lib/libh264dec_customize.so
 vendor/lib/libh264dec_sa.ca7.so;DISABLE_CHECKELF
 vendor/lib/libjpeg-alpha-oal_vendor.so
 vendor/lib/libjpeg-alpha_vendor.so
-vendor/lib/libstagefrighthw.so
 vendor/lib/libthha.so;DISABLE_CHECKELF
 vendor/lib/libvc1dec_sa.ca7.so;DISABLE_CHECKELF
 vendor/lib/libvp8enc_sa.ca7.so;DISABLE_CHECKELF

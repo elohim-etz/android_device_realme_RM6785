@@ -3,7 +3,5 @@ vendor_internal_prop(vendor_fingerprint_prop)
 vendor_public_prop(vendor_device_prop)
 vendor_restricted_prop(vendor_mtk_crossmount_prop)
 vendor_restricted_prop(vendor_mtk_deinterlace_prop)
-vendor_restricted_prop(vendor_mtk_omx_core_prop)
 typeattribute vendor_mtk_crossmount_prop             mtk_core_property_type;
 typeattribute vendor_mtk_deinterlace_prop            mtk_core_property_type;
-typeattribute vendor_mtk_omx_core_prop               mtk_core_property_type;
