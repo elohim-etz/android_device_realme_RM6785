@@ -141,6 +141,7 @@ ro.vendor.mtk_config_max_dram_size=0x800000000
 ro.vendor.mtk_sec_video_path_support=1
 ro.vendor.mtk_tee_gp_support=1
 vendor.mtk.vdec.waitkeyframeforplay=7
+vendor.media.omx=0
 
 # PQ
 ro.vendor.mtk_pq_color_mode=1
