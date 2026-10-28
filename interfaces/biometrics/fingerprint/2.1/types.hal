@@ -41,7 +41,10 @@ enum FingerprintAcquiredInfo : int32_t {
   ACQUIRED_IMAGER_DIRTY = 3,
   ACQUIRED_TOO_SLOW = 4,
   ACQUIRED_TOO_FAST = 5,
-  ACQUIRED_VENDOR = 6
+  ACQUIRED_VENDOR = 6,
+  ACQUIRED_VENDOR_BASE = 1000,
+  ACQUIRED_TOO_SIMILAR = 1001,
+  ACQUIRED_ALREADY_ENROLLED = 1002
 };
 
 struct FingerprintFingerId {
@@ -89,5 +92,6 @@ enum FingerprintAuthType : int32_t {
   TYPE_KEYGUARD = 1,
   TYPE_PAY = 2,
   TYPE_OTHER = 3,
+  TYPE_KEYGUARD_TPWORK = 4,
 };
 

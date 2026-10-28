@@ -10,9 +10,11 @@
 #include <aidl/android/hardware/biometrics/fingerprint/BnSession.h>
 #include <aidl/android/hardware/biometrics/fingerprint/ISessionCallback.h>
 #include <android/log.h>
-#include <hardware/fingerprint.h>
-#include <hardware/hardware.h>
 #include <log/log.h>
+#include <vendor/oplus/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
+
+#include <atomic>
+#include <mutex>
 
 #include "LockoutTracker.h"
 
@@ -20,6 +22,13 @@ using ::aidl::android::hardware::biometrics::common::ICancellationSignal;
 using ::aidl::android::hardware::biometrics::common::OperationContext;
 using ::aidl::android::hardware::biometrics::fingerprint::PointerContext;
 using ::aidl::android::hardware::keymaster::HardwareAuthToken;
+using ::android::sp;
+using ::android::hardware::hidl_vec;
+
+using IOplusFingerprint = ::vendor::oplus::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint;
+using OplusAcquiredInfo = ::vendor::oplus::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo;
+using OplusError = ::vendor::oplus::hardware::biometrics::fingerprint::V2_1::FingerprintError;
+using OplusRequestStatus = ::vendor::oplus::hardware::biometrics::fingerprint::V2_1::RequestStatus;
 
 namespace aidl::android::hardware::biometrics::fingerprint {
 
@@ -27,7 +36,7 @@ void onClientDeath(void* cookie);
 
 class Session : public BnSession {
   public:
-    Session(fingerprint_device_t* device, int userId, std::shared_ptr<ISessionCallback> cb,
+    Session(sp<IOplusFingerprint> device, int userId, std::shared_ptr<ISessionCallback> cb,
             LockoutTracker lockoutTracker);
     ndk::ScopedAStatus generateChallenge() override;
     ndk::ScopedAStatus revokeChallenge(int64_t challenge) override;
@@ -62,16 +71,23 @@ class Session : public BnSession {
     ndk::ScopedAStatus cancel();
     binder_status_t linkToDeath(AIBinder* binder);
     bool isClosed();
-    void notify(const fingerprint_msg_t* msg);
+
+    // Callbacks from the stock vendor.oplus fingerprint service
+    void onEnrollResult(uint32_t fid, uint32_t remaining);
+    void onAcquired(OplusAcquiredInfo info, int32_t vendorCode);
+    void onAuthenticated(uint32_t fid, const hidl_vec<uint8_t>& token);
+    void onError(OplusError error, int32_t vendorCode);
+    void onRemoved(uint32_t fid);
+    void onSyncTemplates(const hidl_vec<uint32_t>& fids);
 
   private:
-    fingerprint_device_t* mDevice;
+    sp<IOplusFingerprint> mDevice;
     LockoutTracker mLockoutTracker;
     bool mClosed = false;
 
-    // static ndk::ScopedAStatus ErrorFilter(int32_t error);
-    static Error VendorErrorFilter(int32_t error, int32_t* vendorCode);
-    static AcquiredInfo VendorAcquiredFilter(int32_t info, int32_t* vendorCode);
+    static Error VendorErrorFilter(OplusError error, int32_t vendorCode, int32_t* outVendorCode);
+    static AcquiredInfo VendorAcquiredFilter(OplusAcquiredInfo info, int32_t vendorCode,
+                                             int32_t* outVendorCode);
 
     bool checkSensorLockout();
     void clearLockout(bool clearAttemptCounter);
@@ -81,6 +97,21 @@ class Session : public BnSession {
     // lockout timer
     bool mIsLockoutTimerStarted = false;
     bool mIsLockoutTimerAborted = false;
+
+    // The stock service never sends onEnumerate, it reports the enrolled
+    // templates through onSyncTemplates instead.
+    std::mutex mTemplatesLock;
+    std::vector<int32_t> mTemplates;
+    bool mEnumeratePending = false;
+
+    // detectInteraction() is running on top of a stock authentication
+    std::atomic<bool> mDetecting = false;
+
+    // The stock service removes one template per call, collect them so that
+    // the framework gets a single onEnrollmentsRemoved for the whole request.
+    std::mutex mRemovalLock;
+    std::vector<int32_t> mPendingRemoval;
+    std::vector<int32_t> mRemoved;
 
     // The user ID for which this session was created.
     int32_t mUserId;

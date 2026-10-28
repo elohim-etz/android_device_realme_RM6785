@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Array containing custom messages shown during fingerprint acquisision from vendor.
+         Indexed by the vendor code reported by the fingerprint HAL. -->
+    <string-array name="fingerprint_acquired_vendor">
+        <item></item>
+        <item></item>
+        <!-- 2: ACQUIRED_ALREADY_ENROLLED -->
+        <item>This finger is already enrolled</item>
+    </string-array>
+</resources>

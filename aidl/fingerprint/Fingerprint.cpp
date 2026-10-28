@@ -7,173 +7,147 @@
 
 #include "Fingerprint.h"
 
-#include <android-base/properties.h>
-#include <fingerprint.sysprop.h>
-#include <util/Util.h>
-
 #include <android-base/logging.h>
-#include <android-base/strings.h>
+#include <android-base/properties.h>
+
+using ::android::hardware::hidl_string;
+using ::android::hardware::Return;
+using ::android::hardware::Void;
+using IOplusFingerprintClientCallback = ::vendor::oplus::hardware::biometrics::fingerprint::V2_1::
+        IBiometricsFingerprintClientCallback;
 
 namespace aidl::android::hardware::biometrics::fingerprint {
 
 namespace {
+constexpr int SENSOR_ID = 0;
+constexpr common::SensorStrength SENSOR_STRENGTH = common::SensorStrength::STRONG;
 constexpr int MAX_ENROLLMENTS_PER_USER = 5;
+
+// Side sensor on the power button, matches config_sfps_sensor_props
+constexpr int SENSOR_LOCATION_X = 1080;
+constexpr int SENSOR_LOCATION_Y = 880;
+constexpr int SENSOR_RADIUS = 115;
+
 constexpr char HW_COMPONENT_ID[] = "fingerprintSensor";
-constexpr char HW_VERSION[] = "vendor/model/revision";
-constexpr char FW_VERSION[] = "1.01";
-constexpr char SERIAL_NUMBER[] = "00000001";
 constexpr char SW_COMPONENT_ID[] = "matchingAlgorithm";
-constexpr char SW_VERSION[] = "vendor/version/revision";
+
+// Set by the stock service from /proc/fp_id, "F_1541" (FPC1541) or "G_3626" (Goodix GF3626)
+constexpr char FP_ID_PROP[] = "persist.vendor.fingerprint.fp_id";
+
+std::string getHardwareVersion() {
+    auto fpId = ::android::base::GetProperty(FP_ID_PROP, "");
+    if (fpId == "F_1541") return "fpc/fpc1541";
+    if (fpId == "G_3626") return "goodix/gf3626";
+    return "unknown/" + fpId;
+}
 }  // namespace
 
-static const uint16_t kVersion = HARDWARE_MODULE_API_VERSION(2, 1);
-static Fingerprint* sInstance;
+class Fingerprint::OplusCallback : public IOplusFingerprintClientCallback {
+  public:
+    OplusCallback(Fingerprint* fingerprint) : mFingerprint(fingerprint) {}
 
-Fingerprint::Fingerprint(std::shared_ptr<FingerprintConfig> config)
-    : mConfig(std::move(config)), mDevice(openHal()) {
-    sInstance = this;  // keep track of the most recent instance
-
-    std::string sensorTypeProp = mConfig->get<std::string>("type");
-    if (sensorTypeProp == "side") {
-        mSensorType = FingerprintSensorType::POWER_BUTTON;
-    } else if (sensorTypeProp == "home") {
-        mSensorType = FingerprintSensorType::HOME_BUTTON;
-    } else if (sensorTypeProp == "rear") {
-        mSensorType = FingerprintSensorType::REAR;
-    } else {
-        mSensorType = FingerprintSensorType::UNKNOWN;
-        UNIMPLEMENTED(FATAL) << "unrecognized or unimplemented fingerprint behavior: "
-                             << sensorTypeProp;
-    }
-    ALOGI("sensorTypeProp: %s", sensorTypeProp.c_str());
-}
-
-Fingerprint::~Fingerprint() {
-    ALOGV("~Fingerprint()");
-    if (mDevice == nullptr) {
-        ALOGE("No valid device");
-        return;
-    }
-    int err;
-    if (0 != (err = mDevice->common.close(reinterpret_cast<hw_device_t*>(mDevice)))) {
-        ALOGE("Can't close fingerprint module, error: %d", err);
-        return;
-    }
-    mDevice = nullptr;
-}
-
-fingerprint_device_t* Fingerprint::openHal() {
-    int err;
-    const hw_module_t* hw_mdl = nullptr;
-    ALOGD("Opening fingerprint hal library...");
-    if (0 != (err = hw_get_module(FINGERPRINT_HARDWARE_MODULE_ID, &hw_mdl))) {
-        ALOGE("Can't open fingerprint HW Module, error: %d", err);
-        return nullptr;
+    Return<void> onEnrollResult(uint64_t /*deviceId*/, uint32_t fingerId, uint32_t /*groupId*/,
+                                uint32_t remaining) override {
+        if (auto session = getSession()) session->onEnrollResult(fingerId, remaining);
+        return Void();
     }
 
-    if (hw_mdl == nullptr) {
-        ALOGE("No valid fingerprint module");
-        return nullptr;
+    Return<void> onAcquired(uint64_t /*deviceId*/, OplusAcquiredInfo acquiredInfo,
+                            int32_t vendorCode) override {
+        if (auto session = getSession()) session->onAcquired(acquiredInfo, vendorCode);
+        return Void();
     }
 
-    fingerprint_module_t const* module = reinterpret_cast<const fingerprint_module_t*>(hw_mdl);
-    if (module->common.methods->open == nullptr) {
-        ALOGE("No valid open method");
-        return nullptr;
+    Return<void> onAuthenticated(uint64_t /*deviceId*/, uint32_t fingerId, uint32_t /*groupId*/,
+                                 const hidl_vec<uint8_t>& token) override {
+        if (auto session = getSession()) session->onAuthenticated(fingerId, token);
+        return Void();
     }
 
-    hw_device_t* device = nullptr;
-
-    if (0 != (err = module->common.methods->open(hw_mdl, nullptr, &device))) {
-        ALOGE("Can't open fingerprint methods, error: %d", err);
-        return nullptr;
+    Return<void> onError(uint64_t /*deviceId*/, OplusError error, int32_t vendorCode) override {
+        if (auto session = getSession()) session->onError(error, vendorCode);
+        return Void();
     }
 
-    if (kVersion != device->version) {
-        // enforce version on new devices because of HIDL@2.1 translation layer
-        ALOGE("Wrong fp version. Expected %d, got %d", kVersion, device->version);
-        return nullptr;
+    Return<void> onRemoved(uint64_t /*deviceId*/, uint32_t fingerId, uint32_t /*groupId*/,
+                           uint32_t /*remaining*/) override {
+        if (auto session = getSession()) session->onRemoved(fingerId);
+        return Void();
     }
 
-    fingerprint_device_t* fp_device = reinterpret_cast<fingerprint_device_t*>(device);
-
-    if (0 != (err = fp_device->set_notify(fp_device, Fingerprint::notify))) {
-        ALOGE("Can't register fingerprint module callback, error: %d", err);
-        return nullptr;
+    // Never sent by the stock service, enrollments come through onSyncTemplates
+    Return<void> onEnumerate(uint64_t /*deviceId*/, uint32_t /*fingerId*/, uint32_t /*groupId*/,
+                             uint32_t /*remaining*/) override {
+        return Void();
     }
 
-    return fp_device;
-}
+    Return<void> onSyncTemplates(uint64_t /*deviceId*/, const hidl_vec<uint32_t>& fingerId,
+                                 uint32_t /*remaining*/) override {
+        if (auto session = getSession()) session->onSyncTemplates(fingerId);
+        return Void();
+    }
 
-std::vector<SensorLocation> Fingerprint::getSensorLocations() {
-    std::vector<SensorLocation> locations;
+    // Optical sensor, engineering mode and DCS reports, unused on RM6785
+    Return<void> onTouchDown(uint64_t /*deviceId*/) override { return Void(); }
+    Return<void> onTouchUp(uint64_t /*deviceId*/) override { return Void(); }
+    Return<void> onMonitorEventTriggered(uint32_t /*type*/, const hidl_string& /*data*/) override {
+        return Void();
+    }
+    Return<void> onImageInfoAcquired(uint32_t /*type*/, uint32_t /*quality*/,
+                                     uint32_t /*match_score*/) override {
+        return Void();
+    }
+    Return<void> onEngineeringInfoUpdated(uint32_t /*length*/, const hidl_vec<uint32_t>& /*keys*/,
+                                          const hidl_vec<hidl_string>& /*values*/) override {
+        return Void();
+    }
+    Return<void> onFingerprintCmd(int32_t /*deviceId*/, const hidl_vec<int8_t>& /*groupId*/,
+                                  uint32_t /*remaining*/) override {
+        return Void();
+    }
 
-    auto loc = mConfig->get<std::string>("sensor_location");
-    auto entries = ::android::base::Split(loc, ",");
-
-    for (const auto& entry : entries) {
-        auto isValidStr = false;
-        auto dim = ::android::base::Split(entry, "|");
-
-        if (dim.size() != 3 and dim.size() != 4) {
-            if (!loc.empty()) {
-                ALOGE("Invalid sensor location input (x|y|radius) or (x|y|radius|display): %s",
-                      loc.c_str());
-            }
-        } else {
-            int32_t x, y, r;
-            std::string d;
-            isValidStr = ParseInt(dim[0], &x) && ParseInt(dim[1], &y) && ParseInt(dim[2], &r);
-            if (dim.size() == 4) {
-                d = dim[3];
-                isValidStr = isValidStr && !d.empty();
-            }
-            if (isValidStr)
-                locations.push_back({.sensorLocationX = x,
-                                     .sensorLocationY = y,
-                                     .sensorRadius = r,
-                                     .display = d});
+  private:
+    std::shared_ptr<Session> getSession() {
+        auto session = mFingerprint->mSession;
+        if (session == nullptr || session->isClosed()) {
+            ALOGE("Receiving callbacks before a session is opened.");
+            return nullptr;
         }
+        return session;
     }
 
-    return locations;
+    Fingerprint* mFingerprint;
+};
+
+Fingerprint::Fingerprint() {
+    mDevice = IOplusFingerprint::getService();
+    CHECK(mDevice != nullptr) << "Can't get the vendor.oplus fingerprint service";
+
+    mOplusCallback = new OplusCallback(this);
+    auto ret = mDevice->setNotify(mOplusCallback);
+    CHECK(ret.isOk()) << "Can't register the vendor.oplus fingerprint callback";
 }
 
-void Fingerprint::notify(const fingerprint_msg_t* msg) {
-    Fingerprint* thisPtr = sInstance;
-    if (thisPtr == nullptr || thisPtr->mSession == nullptr || thisPtr->mSession->isClosed()) {
-        ALOGE("Receiving callbacks before a session is opened.");
-        return;
-    }
-    thisPtr->mSession->notify(msg);
-}
+Fingerprint::~Fingerprint() = default;
 
 ndk::ScopedAStatus Fingerprint::getSensorProps(std::vector<SensorProps>* out) {
     std::vector<common::ComponentInfo> componentInfo = {
-            {HW_COMPONENT_ID, HW_VERSION, FW_VERSION, SERIAL_NUMBER, "" /* softwareVersion */},
+            {HW_COMPONENT_ID, getHardwareVersion(), "" /* firmwareVersion */,
+             "" /* serialNumber */, "" /* softwareVersion */},
             {SW_COMPONENT_ID, "" /* hardwareVersion */, "" /* firmwareVersion */,
-             "" /* serialNumber */, SW_VERSION}};
-    auto sensorId = mConfig->get<std::int32_t>("sensor_id");
-    auto sensorStrength = mConfig->get<std::int32_t>("sensor_strength");
-    auto navigationGuesture = mConfig->get<bool>("navigation_gesture");
-    auto detectInteraction = mConfig->get<bool>("detect_interaction");
+             "" /* serialNumber */, "oplus/fingerprint@2.1"}};
 
-    common::CommonProps commonProps = {sensorId, (common::SensorStrength)sensorStrength,
-                                       MAX_ENROLLMENTS_PER_USER, componentInfo};
+    common::CommonProps commonProps = {SENSOR_ID, SENSOR_STRENGTH, MAX_ENROLLMENTS_PER_USER,
+                                       componentInfo};
 
-    std::vector<SensorLocation> sensorLocations = getSensorLocations();
+    std::vector<SensorLocation> sensorLocations = {{.sensorLocationX = SENSOR_LOCATION_X,
+                                                    .sensorLocationY = SENSOR_LOCATION_Y,
+                                                    .sensorRadius = SENSOR_RADIUS}};
 
-    std::vector<std::string> sensorLocationStrings;
-    std::transform(sensorLocations.begin(), sensorLocations.end(),
-                   std::back_inserter(sensorLocationStrings),
-                   [](const SensorLocation& obj) { return obj.toString(); });
-
-    ALOGI("sensor id: %d, type: %s, location: %s", sensorId,
-          ::android::internal::ToString(mSensorType).c_str(),
-          ::android::base::Join(sensorLocationStrings, ", ").c_str());
-
-    *out = {{commonProps, mSensorType, sensorLocations, navigationGuesture, detectInteraction,
-             false, false, std::nullopt}};
+    *out = {{commonProps, FingerprintSensorType::POWER_BUTTON, sensorLocations,
+             false /* supportsNavigationGestures */, true /* supportsDetectInteraction */,
+             false /* halHandlesDisplayTouches */, false /* halControlsIllumination */,
+             std::nullopt /* touchDetectionParameters */}};
     return ndk::ScopedAStatus::ok();
 }
 

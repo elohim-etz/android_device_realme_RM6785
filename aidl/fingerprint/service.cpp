@@ -5,22 +5,20 @@
  */
 
 #include "Fingerprint.h"
-#include "FingerprintConfig.h"
 
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
+#include <hidl/HidlTransportSupport.h>
 
 using ::aidl::android::hardware::biometrics::fingerprint::Fingerprint;
-using ::aidl::android::hardware::biometrics::fingerprint::FingerprintConfig;
 
 int main() {
     ABinderProcess_setThreadPoolMaxThreadCount(0);
+    // Callbacks from the stock vendor.oplus fingerprint service arrive over hwbinder
+    ::android::hardware::configureRpcThreadpool(1, false /* callerWillJoin */);
 
-    std::shared_ptr<FingerprintConfig> config = std::make_shared<FingerprintConfig>();
-    config->init();
-
-    std::shared_ptr<Fingerprint> fingerprint = ndk::SharedRefBase::make<Fingerprint>(config);
+    std::shared_ptr<Fingerprint> fingerprint = ndk::SharedRefBase::make<Fingerprint>();
 
     const std::string instance = std::string() + Fingerprint::descriptor + "/default";
     binder_status_t status =

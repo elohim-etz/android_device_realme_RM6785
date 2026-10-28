@@ -5,72 +5,34 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
-soong_config_module_type {
-    name: "lineage_hardware_biometrics_config_default",
-    module_type: "cc_defaults",
-    config_namespace: "lineage_hardware_biometrics",
-    bool_variables: [
-        "run_32bit",
-    ],
-    properties: ["compile_multilib"],
-}
-
-lineage_hardware_biometrics_config_default {
-    name: "lineage_hardware_biometrics_config_default",
-
-    soong_config_variables: {
-        run_32bit: {
-            conditions_default: {
-                compile_multilib: "64",
-            },
-            compile_multilib: "prefer32",
-        },
-    },
-}
-
 cc_binary {
     name: "android.hardware.biometrics.fingerprint-service.RM6785",
-    defaults: ["lineage_hardware_biometrics_config_default"],
     relative_install_path: "hw",
     init_rc: ["android.hardware.biometrics.fingerprint-service.RM6785.rc"],
     vintf_fragments: ["android.hardware.biometrics.fingerprint-service.RM6785.xml"],
     srcs: [
         "CancellationSignal.cpp",
         "Fingerprint.cpp",
-        "FingerprintConfig.cpp",
         "LockoutTracker.cpp",
         "Session.cpp",
         "service.cpp",
     ],
-    cflags: select(soong_config_variable("lineage_hardware_biometrics", "fpdata_path"), {
-        any @ flag_val: ["-DFPDATA_PATH=\"" + flag_val + "\""],
-        default: ["-DFPDATA_PATH=\"/data/vendor_de/{}/fpdata/\""],
-    }),
     local_include_dirs: [
         "include",
     ],
     shared_libs: [
         "libbase",
         "libbinder_ndk",
-        "libcutils",
-        "libhardware",
-        "libdl",
+        "libhidlbase",
         "liblog",
+        "libutils",
         "android.hardware.biometrics.fingerprint-V4-ndk",
         "android.hardware.biometrics.common-V4-ndk",
-        "android.hardware.biometrics.common.config",
-        "android.hardware.biometrics.common.thread",
         "android.hardware.biometrics.common.util",
+        "vendor.oplus.hardware.biometrics.fingerprint@2.1",
     ],
-    static_libs: [
-        "libandroid.hardware.biometrics.fingerprint.lineage.Props",
+    header_libs: [
+        "libhardware_headers",
     ],
-    vendor: true,
-}
-
-sysprop_library {
-    name: "android.hardware.biometrics.fingerprint.lineage.Props",
-    srcs: ["fingerprint.sysprop"],
-    property_owner: "Vendor",
     vendor: true,
 }

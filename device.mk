@@ -80,7 +80,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.RM6785
+    android.hardware.biometrics.fingerprint-service.RM6785
 
 # FM Radio
 PRODUCT_PACKAGES += \
