@@ -58,11 +58,16 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('liblog.so'),
     'vendor/lib64/libcam.halsensor.so': blob_fixup()
         .add_needed('libshim_utils.so'),
-   ('vendor/lib64/libutils-v30.so', 'vendor/lib64/hw/hwcomposer.mt6785.so'): blob_fixup()
+    ('vendor/lib64/libutils-v30.so', 'vendor/lib64/hw/hwcomposer.mt6785.so'): blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
     'vendor/lib/hw/audio.primary.mt6785.so': blob_fixup()
         .add_needed('libshim_audio.so')
         .replace_needed('libalsautils.so', 'libalsautils-v30.so'),
+    ('vendor/lib/libdpframework.so',
+     'vendor/lib64/libdpframework.so',
+     'vendor/lib/libgralloc_extra.so',
+     'vendor/lib64/libgralloc_extra.so'): blob_fixup()
+        .replace_needed('libutilscallstack.so', 'libshim_callstack.so'),
     'vendor/lib/libmnl.so': blob_fixup()
         .add_needed('libcutils.so'),
     'vendor/bin/hw/mtkfusionrild': blob_fixup()

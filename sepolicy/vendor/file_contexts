@@ -19,3 +19,6 @@
 
 # Init services
 /(vendor|system/vendor)/bin/init_RM6785_vendor   u:object_r:init_RM6785_exec:s0
+
+# Same process HALs
+/vendor/lib(64)?/libshim_callstack\.so     u:object_r:same_process_hal_file:s0
