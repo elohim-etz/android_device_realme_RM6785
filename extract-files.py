@@ -83,6 +83,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libutils.so', 'libutils-v30.so'),
     'vendor/lib64/libmtkcam_featurepolicy.so': blob_fixup()
         .binary_regex_replace(b'\x34\xE8\x87\x40\xB9', b'\x34\x28\x02\x80\x52'),
+    ('vendor/lib/libdpframework.so', 'vendor/lib64/libdpframework.so', 'vendor/lib/libgralloc_extra.so', 'vendor/lib64/libgralloc_extra.so'): blob_fixup()
+        .replace_needed('libutilscallstack.so', 'libshim_callstack.so'),
     'vendor/lib/libaudio_param_parser-vnd.so': blob_fixup()
         .binary_regex_replace(b'\x00audio.tuning.def_path', b'\x00ro.vendor.tuning_path')
         .binary_regex_replace(b'\x20audio.tuning.def_path', b'\x20ro.vendor.tuning_path'),

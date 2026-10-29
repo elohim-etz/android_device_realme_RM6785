@@ -9,3 +9,14 @@ cc_library_shared {
     ],
     vendor: true,
 }
+
+cc_library_shared {
+    name: "libshim_callstack",
+    srcs: [
+        "libshim_callstack.cpp"
+    ],
+    shared_libs: [
+        "libutils"
+    ],
+    vendor: true
+}
