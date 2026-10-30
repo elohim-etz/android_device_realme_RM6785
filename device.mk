@@ -171,7 +171,8 @@ PRODUCT_PACKAGES += \
 
 # MtkInCallService
 PRODUCT_PACKAGES += \
-    MtkInCallService
+    MtkInCallService \
+    libshim_c2 \
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6785
