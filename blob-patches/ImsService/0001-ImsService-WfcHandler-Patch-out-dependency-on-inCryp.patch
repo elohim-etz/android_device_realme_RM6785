@@ -1,0 +1,30 @@
+From 287efef1a769802ad280e1100231a127cb6233e2 Mon Sep 17 00:00:00 2001
+From: bengris32 <bengris32@protonmail.ch>
+Date: Sat, 27 Aug 2022 18:52:54 +0100
+Subject: [PATCH 1/6] ImsService: WfcHandler: Patch out dependency on
+ inCryptKeeperBounce()
+
+Signed-off-by: bengris32 <bengris32@protonmail.ch>
+---
+ smali/com/mediatek/wfo/impl/WfcHandler.smali | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/smali/com/mediatek/wfo/impl/WfcHandler.smali b/smali/com/mediatek/wfo/impl/WfcHandler.smali
+index 445c620..e70f521 100644
+--- a/smali/com/mediatek/wfo/impl/WfcHandler.smali
++++ b/smali/com/mediatek/wfo/impl/WfcHandler.smali
+@@ -3834,10 +3834,7 @@
+ .method private updateWifiEnabled()V
+     .locals 4
+ 
+-    .line 1224
+-    invoke-static {}, Landroid/os/storage/StorageManager;->inCryptKeeperBounce()Z
+-
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     const/4 v1, 0x0
+ 
+-- 
+2.43.0
+
