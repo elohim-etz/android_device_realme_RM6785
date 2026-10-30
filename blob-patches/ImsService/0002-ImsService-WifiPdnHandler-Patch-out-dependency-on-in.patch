@@ -1,0 +1,30 @@
+From a6e4c8174ae576ba92386931e7e22ccf4724e2ab Mon Sep 17 00:00:00 2001
+From: bengris32 <bengris32@protonmail.ch>
+Date: Sat, 27 Aug 2022 19:37:12 +0100
+Subject: [PATCH 2/6] ImsService: WifiPdnHandler: Patch out dependency on
+ inCryptKeeperBounce()
+
+Signed-off-by: bengris32 <bengris32@protonmail.ch>
+---
+ smali/com/mediatek/wfo/impl/WifiPdnHandler.smali | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/smali/com/mediatek/wfo/impl/WifiPdnHandler.smali b/smali/com/mediatek/wfo/impl/WifiPdnHandler.smali
+index 9c807ed..2ac7c5f 100644
+--- a/smali/com/mediatek/wfo/impl/WifiPdnHandler.smali
++++ b/smali/com/mediatek/wfo/impl/WifiPdnHandler.smali
+@@ -2232,10 +2232,7 @@
+ 
+     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 807
+-    invoke-static {}, Landroid/os/storage/StorageManager;->inCryptKeeperBounce()Z
+-
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     if-nez v0, :cond_1
+ 
+-- 
+2.43.0
+

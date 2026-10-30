@@ -8,12 +8,14 @@ cdt_engineering.img
 dtbo.img
 gz.img
 logo.bin
-md1img.img
 preloader_ufs.img
 scp.img
 spmfw.img
 sspm.img
 tee.img
+
+# Modem (MOLY.LR13.R1.TC16.PR11.SP.V2.P18) - from salaa
+md1img.img|e1c69185ab81151a2b9a530d35c089a23289a5fa
 
 # Patched lk by @R0rt1z2 & @antagonizzzt
 lk.img|61de5d94b0140561269e05f5c1c06e3e0a001f06

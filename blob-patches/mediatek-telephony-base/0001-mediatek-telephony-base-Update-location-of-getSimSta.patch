@@ -1,0 +1,38 @@
+From 32943f67ca1857625e8ecf242be0f9af4f08826f Mon Sep 17 00:00:00 2001
+From: SamarV-121 <samar@samarv121.dev>
+Date: Thu, 5 Oct 2023 19:58:33 +0100
+Subject: [PATCH 1/2] mediatek-telephony-base: Update location of
+ getSimStateForSlotIndex
+
+https://android-review.googlesource.com/q/topic:%22getSimStateForSlotIndex%22
+
+Change-Id: I0348d5c24eefeb77da8d0f45d5529d29bed1ef65
+---
+ smali/com/mediatek/telephony/MtkTelephonyManagerEx.smali | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/smali/com/mediatek/telephony/MtkTelephonyManagerEx.smali b/smali/com/mediatek/telephony/MtkTelephonyManagerEx.smali
+index a41a5ed..4436366 100644
+--- a/smali/com/mediatek/telephony/MtkTelephonyManagerEx.smali
++++ b/smali/com/mediatek/telephony/MtkTelephonyManagerEx.smali
+@@ -2999,7 +2999,7 @@
+     .param p1, "slotId"    # I
+ 
+     .line 1466
+-    invoke-static {p1}, Landroid/telephony/SubscriptionManager;->getSimStateForSlotIndex(I)I
++    invoke-static {p1}, Landroid/telephony/TelephonyManager;->getSimStateForSlotIndex(I)I
+ 
+     move-result v0
+ 
+@@ -3037,7 +3037,7 @@
+     .param p1, "slotId"    # I
+ 
+     .line 1437
+-    invoke-static {p1}, Landroid/telephony/SubscriptionManager;->getSimStateForSlotIndex(I)I
++    invoke-static {p1}, Landroid/telephony/TelephonyManager;->getSimStateForSlotIndex(I)I
+ 
+     move-result v0
+ 
+-- 
+2.43.0
+

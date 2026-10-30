@@ -1,33 +1,30 @@
-From ed5e9934486c3d0b0378db4c86554cafccdc09f0 Mon Sep 17 00:00:00 2001
+From 0e738a2be6af58e5cd5db7ef3ab144f67cbd8eb3 Mon Sep 17 00:00:00 2001
 From: SamarV-121 <samarvispute121@pm.me>
-Date: Fri, 26 Aug 2022 19:32:45 +0530
-Subject: [PATCH 3/8] ril: Update arrayListToPrimitiveArray method location for
- T
+Date: Sat, 24 Sep 2022 09:33:35 +0100
+Subject: [PATCH 3/6] ImsService: Update arrayListToPrimitiveArray method
+ location for T
 
-W System.err(3757): java.lang.NoSuchMethodError: No static method arrayListToPrimitiveArray(Ljava/util/ArrayList;)[B in class Lcom/android/internal/telephony/RIL; or its super classes (declaration of 'com.android.internal.telephony.RIL' appears in /system/framework/telephony-common.jar)
-
-Change-Id: Id27e5764628b8eb4240d7a88c3167654b1b3444a
-Signed-off-by: Naveen <133593113+elohim-etz@users.noreply.github.com>
+Signed-off-by: LinkBoi00 <linkdevel@protonmail.com>
 ---
  smali/com/mediatek/ims/ril/ImsRadioIndication.smali | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/smali/com/mediatek/ims/ril/ImsRadioIndication.smali b/smali/com/mediatek/ims/ril/ImsRadioIndication.smali
-index ea54c9a..b38cfe9 100644
+index a483d2d..5c9fbbe 100644
 --- a/smali/com/mediatek/ims/ril/ImsRadioIndication.smali
 +++ b/smali/com/mediatek/ims/ril/ImsRadioIndication.smali
-@@ -2650,7 +2650,7 @@
+@@ -2754,7 +2754,7 @@
  
-     .line 893
+     .line 876
      .local v0, "ret":[Ljava/lang/String;
 -    invoke-static {p2}, Lcom/android/internal/telephony/RIL;->arrayListToPrimitiveArray(Ljava/util/ArrayList;)[B
 +    invoke-static {p2}, Lcom/android/internal/telephony/RILUtils;->arrayListToPrimitiveArray(Ljava/util/ArrayList;)[B
  
      move-result-object v1
  
-@@ -2722,7 +2722,7 @@
+@@ -2826,7 +2826,7 @@
  
-     .line 877
+     .line 860
      .local v0, "ret":[Ljava/lang/String;
 -    invoke-static {p2}, Lcom/android/internal/telephony/RIL;->arrayListToPrimitiveArray(Ljava/util/ArrayList;)[B
 +    invoke-static {p2}, Lcom/android/internal/telephony/RILUtils;->arrayListToPrimitiveArray(Ljava/util/ArrayList;)[B
@@ -35,5 +32,5 @@ index ea54c9a..b38cfe9 100644
      move-result-object v1
  
 -- 
-2.55.0
+2.43.0
 
