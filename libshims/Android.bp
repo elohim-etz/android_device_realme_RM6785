@@ -11,6 +11,18 @@ cc_library_shared {
 }
 
 cc_library_shared {
+    name: "libshim_ril",
+    srcs: [
+        "libshim_ril.cpp"
+    ],
+    // libmtk-ril.so is dlopen()ed and would bind to its own
+    // RfxAtLine::atTokStart(), only the global group is searched first.
+    ldflags: ["-Wl,-z,global"],
+    compile_multilib: "64",
+    vendor: true
+}
+
+cc_library_shared {
     name: "libshim_callstack",
     srcs: [
         "libshim_callstack.cpp"
