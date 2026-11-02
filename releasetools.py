@@ -29,8 +29,8 @@ def AddImage(info, basename, dest, incremental):
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
 
 def OTA_InstallEnd(info, incremental):
-  AddImage(info, 'dtbo.img', "/dev/block/platform/bootdevice/by-name/dtbo", incremental,)
-  AddImage(info, "vbmeta.img", "/dev/block/platform/bootdevice/by-name/vbmeta", incremental)
+  AddImage(info, 'dtbo.img', "/dev/block/by-name/dtbo", incremental,)
+  AddImage(info, "vbmeta.img", "/dev/block/by-name/vbmeta", incremental)
 
   bin_map = {
       'logo': ['logo']
@@ -62,11 +62,11 @@ def OTA_InstallEnd(info, incremental):
   for img in img_map.keys():
     AddImageOnly(info, '{}.img'.format(img), incremental, True)
     for part in img_map[img]:
-      fw_cmd += 'package_extract_file("{}.img", "/dev/block/platform/bootdevice/by-name/{}");\n'.format(img, part)
+      fw_cmd += 'package_extract_file("{}.img", "/dev/block/by-name/{}");\n'.format(img, part)
 
   for _bin in bin_map.keys():
     AddImageOnly(info, '{}.bin'.format(_bin), incremental, True)
     for part in bin_map[_bin]:
-      fw_cmd += 'package_extract_file("{}.bin", "/dev/block/platform/bootdevice/by-name/{}");\n'.format(_bin, part)
+      fw_cmd += 'package_extract_file("{}.bin", "/dev/block/by-name/{}");\n'.format(_bin, part)
 
   info.script.AppendExtra(fw_cmd)
