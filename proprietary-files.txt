@@ -1485,7 +1485,6 @@ odm/firmware/fastchg/20682/oplus_vooc_fw.bin
 vendor/bin/stp_dump3
 vendor/bin/wfca
 vendor/bin/wmt_launcher
-vendor/bin/wmt_loader
 vendor/etc/init/init.wfca.rc
 vendor/etc/init/init.wlan_drv.rc
 vendor/etc/init/init.wmt_drv.rc
@@ -1494,6 +1493,9 @@ vendor/etc/wifi/wpa_supplicant.conf
 vendor/etc/wifi/wpa_supplicant_overlay.conf
 vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so;FIX_SONAME
 vendor/lib64/libwifitest.so
+
+# Wifi - from RMX2156_11_F.19
+vendor/bin/wmt_loader|5898a5450f6dc4d560aaec208942b4de74cca66a
 
 # Wifi (Firmware)
 vendor/firmware/WIFI_RAM_CODE_soc1_0_2a_1.bin
