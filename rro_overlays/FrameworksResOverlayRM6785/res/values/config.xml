@@ -522,4 +522,9 @@
          the blur effect where it isn't worth the performance hit.
          As of Honeycomb, blurring is not supported anymore. -->
     <bool name="config_sf_slowBlur">true</bool>
+
+    <!-- Used to detect whether an oem fast charger is active -->
+    <string-array name="config_oemFastChargerStatusPaths" translatable="false">
+        <item>/sys/class/power_supply/battery/fastcharger;1</item>
+    </string-array>
 </resources>
