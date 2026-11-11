@@ -44,7 +44,8 @@ lib_fixups: lib_fixups_user_type = {
 
 blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/libsource.so': blob_fixup()
-        .add_needed('libui_shim.so'),
+        .add_needed('libui_shim.so')
+        .binary_regex_replace(b'\xa5\xbc\x45\xf9\x00\x01\\\x3f\xd6', b'\xa3\xbc\x45\xf9\x00\x01\x3f\xd6'),
     ('vendor/lib/libnvram.so',
     'vendor/lib/libsysenv.so',
     'vendor/lib64/libnvram.so',
