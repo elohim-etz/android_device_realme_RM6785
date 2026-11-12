@@ -83,6 +83,8 @@ blob_fixups: blob_fixups_user_type = {
         .apktool_patch('blob-patches/ImsService/'),
     ('vendor/lib64/libmtkcam_stdutils.so', 'vendor/lib64/hw/dfps.mt6785.so', 'vendor/lib64/hw/vendor.mediatek.hardware.pq@2.6-impl.so'): blob_fixup()
         .replace_needed('libutils.so', 'libutils-v30.so'),
+    'vendor/etc/audio_policy_volumes.xml': blob_fixup()
+        .regex_replace(r'(<volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_SPEAKER")\n\s+ref="DEFAULT_DEVICE_CATEGORY_SPEAKER_VOLUME_CURVE"/>', r'\1>\n            <point>1,-5100</point>\n            <point>2,-4400</point>\n            <point>3,-3900</point>\n            <point>4,-3400</point>\n            <point>5,-3100</point>\n            <point>6,-2800</point>\n            <point>7,-2500</point>\n            <point>8,-2400</point>\n            <point>9,-2200</point>\n            <point>10,-2000</point>\n            <point>11,-1800</point>\n            <point>12,-1700</point>\n            <point>13,-1500</point>\n            <point>14,-1400</point>\n            <point>15,-1300</point>\n    </volume>'),
     'vendor/lib64/libmtkcam_featurepolicy.so': blob_fixup()
         .binary_regex_replace(b'\x34\xE8\x87\x40\xB9', b'\x34\x28\x02\x80\x52'),
     ('vendor/lib/libdpframework.so', 'vendor/lib64/libdpframework.so', 'vendor/lib/libgralloc_extra.so', 'vendor/lib64/libgralloc_extra.so'): blob_fixup()
