@@ -39,7 +39,7 @@ system_ext                                       /system_ext           erofs   r
 
 # External-Devices (SDCARD | OTG)
 /devices/platform/externdevice*                  auto                  auto    defaults                                            voldmanaged=sdcard1:auto,encryptable=userdata
-/devices/platform/usb3_xhci*                     auto                  vfat    defaults                                            voldmanaged=usbotg:auto
+/devices/platform/usb0/11200000.xhci*            auto                  vfat    defaults                                            voldmanaged=usbotg:auto
 
 # Swap
 /dev/block/zram0                                 none                  swap    defaults                                            zramsize=75%
