@@ -43,6 +43,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    ('odm/etc/audio/audio_device/audio_device.xml', 'odm/etc/audio/audio_device/common/audio_device.xml'): blob_fixup()
+        .regex_replace(r'(<path name="(?:headphoneS|s)peaker_output" value="turnon">\n)', r'\1            <kctl name="Lineout_PGAL_GAIN" value="-1Db" />\n            <kctl name="Lineout_PGAR_GAIN" value="-1Db" />\n'),
     'system_ext/lib64/libsource.so': blob_fixup()
         .add_needed('libui_shim.so')
         .binary_regex_replace(b'\xa5\xbc\x45\xf9\x00\x01\\\x3f\xd6', b'\xa3\xbc\x45\xf9\x00\x01\x3f\xd6'),
