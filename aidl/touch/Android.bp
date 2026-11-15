@@ -3,9 +3,6 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
-soong_namespace {
-}
-
 cc_binary {
     name: "vendor.lineage.touch-service.RM6785",
     init_rc: ["vendor.lineage.touch-service.RM6785.rc"],
