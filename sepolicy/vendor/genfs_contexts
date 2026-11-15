@@ -4,7 +4,6 @@ genfscon proc /fp_id                                                      u:obje
 genfscon proc /oplusSensorFeature/is_support_mtk_cali                     u:object_r:proc_sensor_feature:s0
 genfscon proc /oppo_nfc/chipset                                           u:object_r:proc_nfc_chipset:s0
 genfscon proc /touchpanel                                                 u:object_r:proc_tp:s0
-genfscon proc /sys/kernel/sched_stune_task_threshold                      u:object_r:proc_sched:s0
 
 # Sysfs
 genfscon sysfs /devices/platform/13040000.mali                            u:object_r:sysfs_gpu:s0

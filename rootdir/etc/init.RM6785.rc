@@ -23,9 +23,6 @@ on post-fs-data
     write /sys/class/leds/vibrator/ram_update 1
 
 on boot
-    # Power HAL
-    setprop vendor.powerhal.init 1
-
     # Touchpanel
     chown system system /proc/touchpanel/tp_fw_update
     chown system system /proc/touchpanel/oplus_tp_limit_enable
@@ -61,8 +58,8 @@ on boot
     chown system system /proc/tbatt_pwroff
 
 on property:sys.boot_completed=1
-    chown system system /sys/devices/system/cpu/cpufreq/mtk/lcluster_min_freq
-    chmod 0664 /sys/devices/system/cpu/cpufreq/mtk/lcluster_min_freq
+    # ZRAM
+    swapon_all /vendor/etc/fstab.mt6785
 
     # Disable edge limit control interface
     write /proc/touchpanel/oplus_tp_limit_enable 0
@@ -73,8 +70,8 @@ on property:sys.boot_completed=1
     # OTG
     write /sys/class/power_supply/usb/otg_switch 1
 
-    # Enable suspend to RAM
-    write /sys/power/mem_sleep "deep"
+    # Codec2
+    restart android-hardware-media-c2-hal-1-2
 
 on property:persist.vendor.radio.port_index=""
     setprop sys.usb.config adb
