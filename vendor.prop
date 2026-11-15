@@ -111,9 +111,6 @@ debug.hwui.target_cpu_time_percent=30
 # Incremental
 ro.incremental.enable=yes
 
-# Launcher
-ro.launcher.blur.appLaunch=0
-
 # Low Memory Killer
 ro.lmk.kill_heaviest_task=true
 ro.lmk.downgrade_pressure=60
